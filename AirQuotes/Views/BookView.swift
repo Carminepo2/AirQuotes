@@ -11,28 +11,62 @@ struct BookView: View {
     let color: Color
     let text: String
     
+    @State private var showActionSheet = false
+    
     var body: some View {
-        Rectangle()
-            .fill(color)
-            .cornerRadius(10)
-            .aspectRatio(0.625, contentMode: .fit)
-            .shadow(color: shadowColor, radius: 15, x: 0, y: 0)
-            .overlay {
-                VStack {
-                    Text(text)
-                        .font(.system(size: 60, weight: .heavy))
-                        .foregroundColor(.secondary)
-                        .lineLimit(4)
-                        .padding()
+        VStack {
+            Rectangle()
+                .fill(color)
+                .cornerRadius(10)
+            
+                .shadow(color: shadowColor, radius: 5, x: 0, y: 0)
+                .overlay {
+                    VStack {
+                        Text(text)
+                            .font(.system(size: 60, weight: .heavy))
+                            .foregroundColor(.secondary)
+                            .lineLimit(4)
+                            .padding()
+                            .minimumScaleFactor(0.5)
                         
-                    Spacer()
+                        Spacer()
+                    }
+                }
+            
+            HStack {
+                Spacer()
+                
+                Button {
+                    showActionSheet = true
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.title)
+                        .foregroundColor(.secondary)
+                }
+                .actionSheet(isPresented: $showActionSheet) {
+                    ActionSheet(title: Text("Libro"),
+                                buttons: [
+                                    .cancel(),
+                                    .destructive(
+                                        Text("Elimina"),
+                                        action: { print("A") }
+                                    ),
+                                ]
+                    )
                 }
             }
-
-
+            .offset(x: -8, y: 20)
+            
+            
+            
+        }
+        .aspectRatio(0.695, contentMode: .fit)
+        
+        
+        
     }
     
-    private let shadowColor = Color(red: 0, green: 0, blue: 0, opacity: 0.3)
+    private let shadowColor = Color(red: 0, green: 0, blue: 0, opacity: 0.1)
     
 }
 
@@ -42,6 +76,7 @@ struct BookView_Previews: PreviewProvider {
             .padding()
     }
 }
+
 
 // Carmine: Ho provato a mettere un'ombreggiatura interna nel testo del libro per simulare un testo inciso.. Non mi ha convinto.
 // https://www.youtube.com/watch?v=ndDmoXbNZvA
@@ -55,8 +90,8 @@ private extension Text {
                     self.foregroundColor(Color(white: 1 - opacity))
                     self.foregroundColor(.white).blur(radius: radius)
                 }
-                .mask(self)
-                .blendMode(.multiply)
+                    .mask(self)
+                    .blendMode(.multiply)
             )
     }
 }

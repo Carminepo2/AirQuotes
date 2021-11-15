@@ -18,6 +18,7 @@
 		75C509782742AF8200F8CA2E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509772742AF8200F8CA2E /* Theme.swift */; };
 		75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097A2742B13700F8CA2E /* SearchView.swift */; };
 		75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097E2742B29F00F8CA2E /* BookView.swift */; };
+		75C509812743030E00F8CA2E /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509802743030E00F8CA2E /* HomeView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		75C509772742AF8200F8CA2E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		75C5097A2742B13700F8CA2E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		75C5097E2742B29F00F8CA2E /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		75C509802743030E00F8CA2E /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				75C5096D27429F9200F8CA2E /* HomeView.swift */,
+				75C509802743030E00F8CA2E /* HomeView2.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				75C5095C274299BB00F8CA2E /* NavigationView.swift in Sources */,
 				75C509732742A31A00F8CA2E /* QuotesViewModel.swift in Sources */,
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
+				75C509812743030E00F8CA2E /* HomeView2.swift in Sources */,
 				75C5096B27429A5700F8CA2E /* Quote.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
