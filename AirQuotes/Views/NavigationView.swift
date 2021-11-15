@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var searchText = ""
+    
     var body: some View {
+        
             TabView {
                 NavigationView {
                     HomeView()
@@ -27,8 +31,11 @@ struct ContentView: View {
                     Image(systemName: "text.quote")
                     Text("Quotes")
                 }
+                
             }
-    }
+            .searchable(text: $searchText)
+        }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

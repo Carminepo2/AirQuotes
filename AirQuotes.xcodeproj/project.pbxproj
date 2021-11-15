@@ -14,6 +14,10 @@
 		75C5096B27429A5700F8CA2E /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5096A27429A5700F8CA2E /* Quote.swift */; };
 		75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5096D27429F9200F8CA2E /* HomeView.swift */; };
 		75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5096F27429FDF00F8CA2E /* QuotesView.swift */; };
+		75C509732742A31A00F8CA2E /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509722742A31A00F8CA2E /* QuotesViewModel.swift */; };
+		75C509782742AF8200F8CA2E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509772742AF8200F8CA2E /* Theme.swift */; };
+		75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097A2742B13700F8CA2E /* SearchView.swift */; };
+		75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097E2742B29F00F8CA2E /* BookView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		75C5096A27429A5700F8CA2E /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		75C5096D27429F9200F8CA2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		75C5096F27429FDF00F8CA2E /* QuotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesView.swift; sourceTree = "<group>"; };
+		75C509722742A31A00F8CA2E /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
+		75C509772742AF8200F8CA2E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		75C5097A2742B13700F8CA2E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		75C5097E2742B29F00F8CA2E /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				75C50959274299BB00F8CA2E /* AirQuotesApp.swift */,
+				75C509762742AF6B00F8CA2E /* Utilities */,
 				75C5096927429A3E00F8CA2E /* Model */,
 				75C5096827429A3500F8CA2E /* Views */,
 				75C5095D274299BC00F8CA2E /* Assets.xcassets */,
@@ -77,9 +86,11 @@
 		75C5096827429A3500F8CA2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75C509792742B12A00F8CA2E /* SearchView */,
+				75C509712742A30800F8CA2E /* QuotesView */,
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
+				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				75C5096D27429F9200F8CA2E /* HomeView.swift */,
-				75C5096F27429FDF00F8CA2E /* QuotesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +101,31 @@
 				75C5096A27429A5700F8CA2E /* Quote.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		75C509712742A30800F8CA2E /* QuotesView */ = {
+			isa = PBXGroup;
+			children = (
+				75C5096F27429FDF00F8CA2E /* QuotesView.swift */,
+				75C509722742A31A00F8CA2E /* QuotesViewModel.swift */,
+			);
+			path = QuotesView;
+			sourceTree = "<group>";
+		};
+		75C509762742AF6B00F8CA2E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				75C509772742AF8200F8CA2E /* Theme.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		75C509792742B12A00F8CA2E /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				75C5097A2742B13700F8CA2E /* SearchView.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,11 +198,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */,
 				75C5095C274299BB00F8CA2E /* NavigationView.swift in Sources */,
+				75C509732742A31A00F8CA2E /* QuotesViewModel.swift in Sources */,
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
 				75C5096B27429A5700F8CA2E /* Quote.swift in Sources */,
+				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
+				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
