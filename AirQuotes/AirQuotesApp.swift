@@ -15,5 +15,3 @@ struct AirQuotesApp: App {
         }
     }
 }
-
-// COmmento a caso
