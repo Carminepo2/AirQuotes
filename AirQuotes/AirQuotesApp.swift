@@ -14,7 +14,7 @@ struct AirQuotesApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavgationView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .onChange(of: scenePhase) { _ in
