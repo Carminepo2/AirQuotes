@@ -30,11 +30,15 @@ struct QuotesView: View {
                 .pickerStyle(.segmented)
                 .padding(.horizontal)
                 
-                Spacer()
-                
-                Text("\(quotesViewModel.actualViewType.rawValue)")
-                
-                Spacer()
+                switch(quotesViewModel.actualViewType) {
+                    case .tags:
+                        TagsListView()
+                    default:
+                        VStack {
+                            Text(quotesViewModel.actualViewType.rawValue)
+                            Spacer()
+                        }
+                }
             }
         }
         
