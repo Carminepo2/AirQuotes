@@ -98,36 +98,37 @@ struct BookCreationView: View {
                 }
                 .padding()
                 HStack{
-                    Circle()
+                    let extractedExpr = Circle()
+                    extractedExpr
                         .frame(width: 50, height: 50, alignment: .center)
                         .opacity(0.4)
                         .foregroundColor(.orange)
                         .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
+                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
+                    extractedExpr
                         .frame(width: 50, height: 50, alignment: .center)
                         .opacity(0.4)
                         .foregroundColor(.purple)
                         .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
+                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
+                    extractedExpr
                         .frame(width: 50, height: 50, alignment: .center)
                         .opacity(0.4)
                         .foregroundColor(.white)
                         .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
+                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
+                    extractedExpr
                         .frame(width: 50, height: 50, alignment: .center)
                         .opacity(0.4)
                         .foregroundColor(.black)
                         .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
+                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
+                    extractedExpr
                         .frame(width: 50, height: 50, alignment: .center)
                         .opacity(0.4)
                         .foregroundColor(.gray)
                         .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
+                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
                         
                 }
                 

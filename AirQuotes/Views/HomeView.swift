@@ -88,6 +88,20 @@ struct HomeView: View {
                     DividerMartina()
                     //padding(.vertical)
                     
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 25) {
+                            BookView(color: .bookColorOne, text: "Harry Potdwddqwdwqdwqdwqdwqd wqddqwd qwd qw wq wqdwdwqdqw wter")
+                            BookView(color: .bookColorOne, text: "Harry Potter")
+                            BookView(color: .bookColorOne, text: "Harry Pottdwddwdwdwer")
+                            BookView(color: .bookColorOne, text: "Harry Potter")
+                            
+                            
+                        }.padding(35)
+                    }
+                    .padding(-35)
+                    .padding(.horizontal)
+                    
+                    .frame(height: 240, alignment: .trailing)
                     
                 }
             }
