@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7531B43D2746A32B006B235D /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531B43C2746A32B006B235D /* RoundedRectangleButtonStyle.swift */; };
 		75BF6055274458360099A9C8 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF6054274458360099A9C8 /* TagsListView.swift */; };
 		75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA182744417E00DEA1BB /* PersistenceController.swift */; };
 		75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA1A274441E700DEA1BB /* AirQuotesModel.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7531B43C2746A32B006B235D /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
 		75BF6054274458360099A9C8 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 		75C4CA182744417E00DEA1BB /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirQuotesModel.xcdatamodel; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				75C509772742AF8200F8CA2E /* Theme.swift */,
 				75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */,
+				7531B43C2746A32B006B235D /* RoundedRectangleButtonStyle.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
+				7531B43D2746A32B006B235D /* RoundedRectangleButtonStyle.swift in Sources */,
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);
