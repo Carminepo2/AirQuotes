@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7531B43D2746A32B006B235D /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531B43C2746A32B006B235D /* RoundedRectangleButtonStyle.swift */; };
 		75BF6055274458360099A9C8 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF6054274458360099A9C8 /* TagsListView.swift */; };
 		75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA182744417E00DEA1BB /* PersistenceController.swift */; };
 		75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA1A274441E700DEA1BB /* AirQuotesModel.xcdatamodeld */; };
@@ -91,8 +92,8 @@
 			children = (
 				75FA7DCC2745C02500DDF4CD /* Info.plist */,
 				75C50959274299BB00F8CA2E /* AirQuotesApp.swift */,
+				9CBB98CA2746965700E27B94 /* BookModel.swift */,
 				75C509762742AF6B00F8CA2E /* Utilities */,
-				75C5096927429A3E00F8CA2E /* Model */,
 				75C5096827429A3500F8CA2E /* Views */,
 				75C5095D274299BC00F8CA2E /* Assets.xcassets */,
 				75C5095F274299BC00F8CA2E /* Preview Content */,
@@ -119,16 +120,10 @@
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				75C5096D27429F9200F8CA2E /* HomeView.swift */,
+				9CBB98C82746964000E27B94 /* CreationBookView.swift */,
 				75C509802743030E00F8CA2E /* HomeViewEsempio.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		75C5096927429A3E00F8CA2E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		75C509712742A30800F8CA2E /* QuotesView */ = {
@@ -146,6 +141,7 @@
 			children = (
 				75C509772742AF8200F8CA2E /* Theme.swift */,
 				75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */,
+				7531B43C2746A32B006B235D /* RoundedRectangleButtonStyle.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -250,12 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBB98CB2746965700E27B94 /* BookModel.swift in Sources */,
 				75FA7DCB2745B91900DDF4CD /* ImagePicker.swift in Sources */,
 				75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */,
 				75C5095C274299BB00F8CA2E /* NavigationView.swift in Sources */,
 				75C509732742A31A00F8CA2E /* QuotesViewModel.swift in Sources */,
 				75BF6055274458360099A9C8 /* TagsListView.swift in Sources */,
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
+				9CBB98C92746964000E27B94 /* CreationBookView.swift in Sources */,
 				75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
@@ -263,6 +261,7 @@
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
+				7531B43D2746A32B006B235D /* RoundedRectangleButtonStyle.swift in Sources */,
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);

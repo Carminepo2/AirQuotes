@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var CreateBook : Bool = false
+    
     var body: some View {
         ZStack {
             Color.themeColor
@@ -15,6 +18,7 @@ struct HomeView: View {
             
             ScrollView {
                 VStack{
+                    
                     HStack {
                         Text("Latest quote")
                             .font(.title2)
@@ -27,23 +31,32 @@ struct HomeView: View {
                     }
                     
                     DividerMartina()
+                    
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .frame(height: 200)
                             .foregroundColor(Color.gray)
                             .opacity(0.2)
-                            .padding(.horizontal, 30)
-                            .padding(.vertical)
+                            .padding()
                         Text("Write your first quote!")
                             .foregroundColor(Color.gray)
                             .opacity(0.5)
                     }
                     Circle()
                         .frame(width: 8, height: 8, alignment: .center)
-                    //.position(x: 164, y: -12)
+                        //.position(x: 164, y: -12)
                         .offset(y: -10)
                         .opacity(0.4)
-                        .padding(.bottom, 20)
+                    
+                    
+                    Button("Add Quote") {
+                        //TODO
+                    }
+                    .buttonStyle(RoundedRectangleButtonStyle())
+                    .padding()
+                    .padding(.bottom, 20)
+
+
                     
                     
                     HStack {
@@ -56,13 +69,12 @@ struct HomeView: View {
                         //.padding()
                         Spacer()
                         
-                        Button(action: {}) {
-                            Text("+ Add book")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.black)
-                        }
-                        
+                        Button("+ Add Book") {
+                            CreateBook.toggle()
+                         }
+//                        .sheet(isPresented: $CreateBook, content: {
+//                            BookCreationView(book: .example, CreateBook: .constant(true))
+//                        })
                         /*Text("+ Add book")
                          .font(.headline)
                          .fontWeight(.semibold)
@@ -76,6 +88,20 @@ struct HomeView: View {
                     DividerMartina()
                     //padding(.vertical)
                     
+                    ScrollView(.horizontal) {
+                        HStack(spacing: 25) {
+                            BookView(color: .bookColorOne, text: "Harry Potdwddqwdwqdwqdwqdwqd wqddqwd qwd qw wq wqdwdwqdqw wter")
+                            BookView(color: .bookColorOne, text: "Harry Potter")
+                            BookView(color: .bookColorOne, text: "Harry Pottdwddwdwdwer")
+                            BookView(color: .bookColorOne, text: "Harry Potter")
+                            
+                            
+                        }.padding(35)
+                    }
+                    .padding(-35)
+                    .padding(.horizontal)
+                    
+                    .frame(height: 240, alignment: .trailing)
                     
                 }
             }
@@ -85,9 +111,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
-        HomeView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        HomeView(CreateBook: true)
     }
 }
 
@@ -99,7 +123,7 @@ struct HomeView_Previews: PreviewProvider {
 struct DividerMartina: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 10)
-            .frame(width: .infinity, height: 1, alignment: .center)
+            .frame(height: 1)
             .foregroundColor(Color.gray)
             .opacity(0.5)
         // .position(x: 166, y:-13)
