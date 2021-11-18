@@ -4,7 +4,7 @@
 //
 //  Created by Valerio Domenico Conte on 18/11/21.
 //
-
+/*
 import SwiftUI
 
 struct AddQuote: View {
@@ -28,3 +28,4 @@ struct AddQuote_Previews: PreviewProvider {
         AddQuote()
     }
 }
+*/
