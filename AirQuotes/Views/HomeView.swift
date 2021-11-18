@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State var CreateBook : Bool = false
+    
     var body: some View {
         ZStack {
             Color.themeColor
@@ -56,13 +59,12 @@ struct HomeView: View {
                         //.padding()
                         Spacer()
                         
-                        Button(action: {}) {
-                            Text("+ Add book")
-                                .font(.title3)
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color.black)
-                        }
-                        
+                        Button("+ Add Book") {
+                            CreateBook.toggle()
+                         }
+                        .sheet(isPresented: $CreateBook, content: {
+                            BookCreationView(book: .example, CreateBook: .constant(true))
+                        })
                         /*Text("+ Add book")
                          .font(.headline)
                          .fontWeight(.semibold)
@@ -85,9 +87,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
-        HomeView()
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+        HomeView(CreateBook: true)
     }
 }
 
