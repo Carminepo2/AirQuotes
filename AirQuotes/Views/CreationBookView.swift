@@ -36,15 +36,17 @@ struct BookCreationView: View {
                 
                 Form{
                         TextField("Title", text: $title)
-                            .font(.title2)
-                            .foregroundColor(.gray)
-                            .opacity(0.7)
-                            .padding(.horizontal)
+                            .frame(height: 50)
+                            //.font(.title2)
+                            //.foregroundColor(.gray)
+                            //.opacity(0.7)
+                           // .padding(.horizontal)
                         TextField("Author", text: $author)
-                            .font(.title2)
-                            .foregroundColor(.gray)
-                            .opacity(0.7)
-                            .padding(.horizontal)
+                            .frame(height: 50)
+                            //.font(.title2)
+                           // .foregroundColor(.gray)
+                           // .opacity(0.7)
+                            //.padding(.horizontal)
 
                 }
                 
