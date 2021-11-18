@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var CreateBook : Bool = false
+    @State var isCreateBookModalOpen : Bool = false
     
     var body: some View {
         ZStack {
@@ -60,10 +60,10 @@ struct HomeView: View {
                         Spacer()
                         
                         Button("+ Add Book") {
-                            CreateBook.toggle()
+                            isCreateBookModalOpen.toggle()
                          }
-                        .sheet(isPresented: $CreateBook, content: {
-                            BookCreationView(book: .example, CreateBook: .constant(true))
+                        .sheet(isPresented: $isCreateBookModalOpen, content: {
+                            BookCreationView(book: .example, isCreateBookModalOpen: $isCreateBookModalOpen)
                         })
                         /*Text("+ Add book")
                          .font(.headline)
@@ -101,7 +101,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(CreateBook: true)
+        HomeView()
     }
 }
 
