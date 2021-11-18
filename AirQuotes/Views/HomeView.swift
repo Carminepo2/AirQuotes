@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var CreateBook : Bool = false
+    @State private var showModal = false
     @State var isCreateBookModalOpen : Bool = false
     
     var body: some View {
@@ -50,11 +52,15 @@ struct HomeView: View {
                     
                     
                     Button("Add Quote") {
-                        //TODO
+                        showModal.toggle()
                     }
                     .buttonStyle(RoundedRectangleButtonStyle())
                     .padding()
                     .padding(.bottom, 20)
+                    .sheet(isPresented: $showModal, content: {
+                        QuoteForm()
+                    })
+
 
 
                     
