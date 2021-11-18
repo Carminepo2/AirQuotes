@@ -22,6 +22,9 @@
 		75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097E2742B29F00F8CA2E /* BookView.swift */; };
 		75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509802743030E00F8CA2E /* HomeViewEsempio.swift */; };
 		75FA7DCB2745B91900DDF4CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */; };
+		B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B94A0FA1274646C0000FF9C8 /* ScanTextField */; };
+		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
+		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,8 @@
 		75C509802743030E00F8CA2E /* HomeViewEsempio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewEsempio.swift; sourceTree = "<group>"; };
 		75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		75FA7DCC2745C02500DDF4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
+		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,7 @@
 			children = (
 				75C50958274299BB00F8CA2E /* AirQuotes */,
 				75C50957274299BB00F8CA2E /* Products */,
+				B94A0F9F27464681000FF9C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +113,7 @@
 		75C5096827429A3500F8CA2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B94A0FA327464755000FF9C8 /* AddQuoteView */,
 				75C509792742B12A00F8CA2E /* SearchView */,
 				75C509712742A30800F8CA2E /* QuotesView */,
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
@@ -150,6 +158,22 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		B94A0F9F27464681000FF9C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B94A0FA327464755000FF9C8 /* AddQuoteView */ = {
+			isa = PBXGroup;
+			children = (
+				B94A0FA6274647DC000FF9C8 /* AddQuote.swift */,
+				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
+			);
+			path = AddQuoteView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +190,9 @@
 			dependencies = (
 			);
 			name = AirQuotes;
+			packageProductDependencies = (
+				B94A0FA1274646C0000FF9C8 /* ScanTextField */,
+			);
 			productName = AirQuotes;
 			productReference = 75C50956274299BB00F8CA2E /* AirQuotes.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +221,9 @@
 				Base,
 			);
 			mainGroup = 75C5094D274299BB00F8CA2E;
+			packageReferences = (
+				B94A0FA0274646C0000FF9C8 /* XCRemoteSwiftPackageReference "ScanTextField" */,
+			);
 			productRefGroup = 75C50957274299BB00F8CA2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -228,8 +258,10 @@
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
 				75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
+				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
+				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
@@ -363,11 +395,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = 37THZ8H7Q6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirQuotes/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) AirQuotes camera use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -378,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it.carmineporricelli.AirQuotes;
+				PRODUCT_BUNDLE_IDENTIFIER = it.valeriooconte.AirQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -394,11 +426,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = 37THZ8H7Q6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirQuotes/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) camera use";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) AirQuotes camera use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it.carmineporricelli.AirQuotes;
+				PRODUCT_BUNDLE_IDENTIFIER = it.valeriooconte.AirQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -439,6 +471,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B94A0FA0274646C0000FF9C8 /* XCRemoteSwiftPackageReference "ScanTextField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chFlorian/ScanTextField";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B94A0FA1274646C0000FF9C8 /* ScanTextField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B94A0FA0274646C0000FF9C8 /* XCRemoteSwiftPackageReference "ScanTextField" */;
+			productName = ScanTextField;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		75C4CA1A274441E700DEA1BB /* AirQuotesModel.xcdatamodeld */ = {
