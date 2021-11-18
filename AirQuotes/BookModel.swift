@@ -11,7 +11,6 @@ import SwiftUI
 struct BookModel/*: Identifiable*/{
    // var id: ObjectIdentifier
     
-    
     var title: String
     var color : Color
     var author: String
