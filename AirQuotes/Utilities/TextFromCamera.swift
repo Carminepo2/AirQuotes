@@ -9,6 +9,6 @@ import Foundation
 import SwiftUI
 import UIKit
 
-let textFromCamera = UIAction.captureTextFromCamera(responder: self.quote, identifier: nil)
+//let textFromCamera = UIAction.captureTextFromCamera(responder: self.quote, identifier: nil)
 
-let choosePhotoOrVideo = UIAction.
+//let choosePhotoOrVideo = UIAction.

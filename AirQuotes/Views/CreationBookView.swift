@@ -9,14 +9,19 @@ import SwiftUI
 
 struct BookCreationView: View {
 
-//    @State var color: Color
+
     var book: BookModel
-    @Binding var CreateBook : Bool 
+    
+    @State var changeColor: Color = Color.gray
+    @Binding var isCreateBookModalOpen : Bool
+    @State private var author = ""
+    @State private var title = ""
     
     var body: some View {
+        
         NavigationView{
             VStack{
-                
+
                 Text("New Book")
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -24,16 +29,14 @@ struct BookCreationView: View {
                 
                 RoundedRectangle(cornerRadius: 10)
                     .frame(width: 200, height: 300, alignment: .center)
-                    .foregroundColor(Color.gray)
-                    .opacity(0.4)
-                // .position(x: 166, y:-13)
+                    .foregroundColor(changeColor)
                     .padding(.horizontal)
                     .shadow(color: .black, radius: 2, x: 3.0, y: 3.0)
                     .padding(.bottom, 40)
                     //Spacer()
                 
                 HStack{
-                    Text("\(book.title)")
+                    TextField("Title", text: $title)
                         .font(.title2)
                         .foregroundColor(.gray)
                         .opacity(0.7)
@@ -44,7 +47,7 @@ struct BookCreationView: View {
                 DividerMartina()
                     .padding(.vertical)
                 HStack{
-                    Text("\(book.author)")
+                    TextField("Author", text: $author)
                         .font(.title2)
                         .foregroundColor(.gray)
                         .opacity(0.7)
@@ -64,76 +67,24 @@ struct BookCreationView: View {
                 }
                 
                 HStack{
-                    Circle()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.red)
-                        .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.green)
-                        .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.yellow)
-                        .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.pink)
-                        .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
-                    Circle()
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.blue)
-                        .padding(.horizontal, 10)
-                        .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
+                    ColorButton(color: .red, changeColor: $changeColor)
+                    ColorButton(color: .green, changeColor: $changeColor)
+                    ColorButton(color: .yellow, changeColor: $changeColor)
+                    ColorButton(color: .pink, changeColor: $changeColor)
+                    ColorButton(color: .blue, changeColor: $changeColor)
                         
                 }
                 .padding()
                 HStack{
-                    let extractedExpr = Circle()
-                    extractedExpr
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.orange)
-                        .padding(.horizontal, 10)
-                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
-                    extractedExpr
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.purple)
-                        .padding(.horizontal, 10)
-                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
-                    extractedExpr
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 10)
-                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
-                    extractedExpr
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.black)
-                        .padding(.horizontal, 10)
-                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
-                    extractedExpr
-                        .frame(width: 50, height: 50, alignment: .center)
-                        .opacity(0.4)
-                        .foregroundColor(.gray)
-                        .padding(.horizontal, 10)
-                        .overlay(extractedExpr.stroke(Color.black, lineWidth: 0.5))
-                        
+                    ColorButton(color: .orange, changeColor: $changeColor)
+                    ColorButton(color: .purple, changeColor: $changeColor)
+                    ColorButton(color: .white, changeColor: $changeColor)
+                    ColorButton(color: .black, changeColor: $changeColor)
+                    ColorButton(color: .gray, changeColor: $changeColor)
                 }
-                
+                .padding(.bottom)
             }
-            .navigationBarItems(trailing: Button("Add", action: {CreateBook.toggle()}))
+            .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
             .foregroundColor(.none)
         }
     }
@@ -141,6 +92,24 @@ struct BookCreationView: View {
 
 struct BookCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        BookCreationView(book: .example, CreateBook: .constant(true))
+        BookCreationView(book: .example, isCreateBookModalOpen: .constant(true))
+    }
+}
+
+struct ColorButton: View {
+    
+    let color: Color
+    @Binding var changeColor: Color
+    
+    var body: some View {
+        Button {
+            changeColor = color
+        } label: {
+            Circle()
+                .frame(width: 50, height: 50)
+                .foregroundColor(color)
+                .padding(.horizontal, 10)
+                .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
+        }
     }
 }
