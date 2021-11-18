@@ -60,10 +60,6 @@ struct HomeView: View {
                     .sheet(isPresented: $showModal, content: {
                         QuoteForm()
                     })
-
-
-
-                    
                     
                     HStack {
                         Text("Recent books")

@@ -15,5 +15,5 @@ struct BookModel/*: Identifiable*/{
     var color : Color
     var author: String
     
-    static let example = BookModel(title: "Title", color: .gray, author: "Author")
+    static let example = BookModel(title: "", color: .gray, author: "")
 }
