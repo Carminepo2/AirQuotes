@@ -58,7 +58,7 @@ struct HomeView: View {
                     .padding()
                     .padding(.bottom, 20)
                     .sheet(isPresented: $showModal, content: {
-                        QuoteForm()
+                        QuoteForm(showModal: $showModal)
                     })
 
 
