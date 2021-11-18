@@ -17,9 +17,16 @@ struct QuoteForm: View {
     var body: some View {
         NavigationView {
             Form {
-                TextField("Quote", text: $quote)
-                    .frame(height: 150)
-
+                ZStack(alignment: .leading){
+                    if quote.isEmpty {
+                        Text("Quote")
+                            .foregroundColor(.secondary)
+                            .opacity(0.5)
+                    }
+                    TextEditor(text: $quote)
+                }
+                
+                
                 TextField("By", text: $by)
                     .frame(height: 50)
             }
