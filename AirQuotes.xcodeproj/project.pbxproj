@@ -520,6 +520,16 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
+		DE9E44A02746B12800576EEA /* AirQuotesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */,
+			);
+			currentVersion = DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */;
+			path = AirQuotesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 /* End XCVersionGroup section */
 	};
 	rootObject = 75C5094E274299BB00F8CA2E /* Project object */;
