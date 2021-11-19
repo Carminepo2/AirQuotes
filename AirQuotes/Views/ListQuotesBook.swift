@@ -15,16 +15,16 @@ struct ListQuotesBook: View {
         
         Group {
             List {
-                    QuoteInList()
-                    QuoteInList()
-                    QuoteInList()
-                    QuoteInList()
-                    QuoteInList()
-                    QuoteInList()
-                    QuoteInList()
-                    
+                ForEach(0..<10) {
+                    _ in
+                    NavigationLink(destination: QuoteView()) {
+                        QuoteInList()
+                    }
                 }
-
+                
+                
+            }
+            
             .navigationTitle("Harry Potter")
             .toolbar {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {

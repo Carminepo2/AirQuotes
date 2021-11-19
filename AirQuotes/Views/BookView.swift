@@ -22,10 +22,7 @@ struct BookView: View {
     }
     
     var body: some View {
-        
-        
         if let id = id {
-            
             BookRectangle(color: color, text: text)
                 .contextMenu {
                     Button(role: .destructive) {

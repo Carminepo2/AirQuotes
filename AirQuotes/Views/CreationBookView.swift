@@ -21,7 +21,6 @@ struct BookCreationView: View {
     
     var body: some View {
         NavigationView {
-            
             VStack {
                 
                 BookView(color: Color(chosenColor), text: title)
