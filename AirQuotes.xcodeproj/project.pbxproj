@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7531B43D2746A32B006B235D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		75BF6055274458360099A9C8 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF6054274458360099A9C8 /* TagsListView.swift */; };
+		75C046B92746B07E004552AC /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C046B82746B07E004552AC /* CreationBookView.swift */; };
+		75C046BF2746B0DD004552AC /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C046BE2746B0DD004552AC /* BookModel.swift */; };
 		75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA182744417E00DEA1BB /* PersistenceController.swift */; };
 		75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA1A274441E700DEA1BB /* AirQuotesModel.xcdatamodeld */; };
 		75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C50959274299BB00F8CA2E /* AirQuotesApp.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		75BF6054274458360099A9C8 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
+		75C046B82746B07E004552AC /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationBookView.swift; sourceTree = "<group>"; };
+		75C046BE2746B0DD004552AC /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		75C4CA182744417E00DEA1BB /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirQuotesModel.xcdatamodel; sourceTree = "<group>"; };
 		75C50956274299BB00F8CA2E /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +131,7 @@
 		75C5096827429A3500F8CA2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9CBB98CE2746B04600E27B94 /* CreationBookView.swift */,
+				75C046B82746B07E004552AC /* CreationBookView.swift */,
 				B94A0FA327464755000FF9C8 /* AddQuoteView */,
 				75C509792742B12A00F8CA2E /* SearchView */,
 				75C509712742A30800F8CA2E /* QuotesView */,

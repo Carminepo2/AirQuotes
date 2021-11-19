@@ -27,7 +27,6 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color.black)
                             .opacity(0.60)
-                        // .position(x: 60, y: 20)
                             .padding(.horizontal)
                         Spacer()
                     }
@@ -67,8 +66,6 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(Color.black)
                             .opacity(0.60)
-                        //.position(x: 60, y: 20)
-                        //.padding()
                         Spacer()
                         
                         Button("+ Add Book") {
@@ -77,18 +74,13 @@ struct HomeView: View {
                         .sheet(isPresented: $isCreateBookModalOpen, content: {
                             BookCreationView(book: .example, isCreateBookModalOpen: $isCreateBookModalOpen)
                         })
-                        /*Text("+ Add book")
-                         .font(.headline)
-                         .fontWeight(.semibold)
-                         .foregroundColor(Color.black)
-                         //.position(x: 250, y:-43)
-                         //.padding()*/
+                    
                     }.padding(.horizontal)
-                    //.offset(y: 20)
+                    
                     
                     
                     DividerMartina()
-                    //padding(.vertical)
+                    
                     
                     ScrollView(.horizontal) {
                         HStack(spacing: 25) {
@@ -101,7 +93,7 @@ struct HomeView: View {
                         }.padding(35)
                     }
                     .padding(-35)
-                    .padding(.horizontal)
+                    .padding()
                     
                     .frame(height: 240, alignment: .trailing)
                     

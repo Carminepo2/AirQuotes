@@ -78,7 +78,10 @@ struct BookCreationView: View {
                 }
                 .padding(.bottom)
             }
-            .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
+           // .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
+            .toolbar(content: {
+                Button("Add", action: { isCreateBookModalOpen = false })
+            })
             .foregroundColor(.none)
         }
     }
