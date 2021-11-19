@@ -29,7 +29,6 @@
 		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
 		B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */; };
-		B9A03C102746ADF900A825CA /* TextFromCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C0F2746ADF900A825CA /* TextFromCamera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,6 @@
 		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
 		B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
-		B9A03C0F2746ADF900A825CA /* TextFromCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFromCamera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +149,6 @@
 				B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */,
 				75C509772742AF8200F8CA2E /* Theme.swift */,
 				75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */,
-				B9A03C0F2746ADF900A825CA /* TextFromCamera.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -268,7 +265,6 @@
 				9CBB98D12746B06D00E27B94 /* BookModel.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
-				B9A03C102746ADF900A825CA /* TextFromCamera.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
