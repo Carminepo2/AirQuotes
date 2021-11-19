@@ -17,18 +17,33 @@ struct QuoteForm: View {
     var body: some View {
         NavigationView {
             Form {
-                ZStack(alignment: .leading){
-                    if quote.isEmpty {
-                        Text("Quote")
-                            .foregroundColor(.secondary)
-                            .opacity(0.5)
+                
+
+                    ZStack(alignment: .leading){
+                        if quote.isEmpty {
+                            Text("Quote")
+                                .foregroundColor(.secondary)
+                                .opacity(0.5)
+
+                        }
+                        TextEditor(text: $quote)
+
                     }
-                    TextEditor(text: $quote)
-                }
+                    
+                    
+                    ZStack(alignment: .leading){
+                        if by.isEmpty {
+                            Text("By")
+                                .foregroundColor(.secondary)
+                                .opacity(0.5)
+                        }
+                        TextEditor(text: $by)
+                    }
+                    
                 
                 
-                TextField("By", text: $by)
-                    .frame(height: 50)
+
+                
             }
             .navigationTitle("Add a new quote")
             .toolbar {
@@ -38,12 +53,23 @@ struct QuoteForm: View {
 //                        add saveQuote function
                     }
                 }
+                
+                ToolbarItemGroup(placement: .keyboard) {
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "camera")
+                    }
+                }
+                
+                
+    
                 ToolbarItemGroup(placement: .navigationBarLeading)
                 {
                     ScanButton(text: $quote)
                        .frame(width: 100, height: 56, alignment: .leading)
                 }
-                
+
             }
         }
     }
