@@ -23,10 +23,8 @@
 		75C509782742AF8200F8CA2E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509772742AF8200F8CA2E /* Theme.swift */; };
 		75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097A2742B13700F8CA2E /* SearchView.swift */; };
 		75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097E2742B29F00F8CA2E /* BookView.swift */; };
-		75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509802743030E00F8CA2E /* HomeViewEsempio.swift */; };
+		75F8A8CC2747E41100EBF06E /* HomeBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8A8CB2747E41100EBF06E /* HomeBookList.swift */; };
 		75FA7DCB2745B91900DDF4CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */; };
-		9CBB98CF2746B04600E27B94 /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98CE2746B04600E27B94 /* CreationBookView.swift */; };
-		9CBB98D12746B06D00E27B94 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98D02746B06D00E27B94 /* BookModel.swift */; };
 		B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B94A0FA1274646C0000FF9C8 /* ScanTextField */; };
 		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
@@ -50,10 +48,9 @@
 		75C509772742AF8200F8CA2E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		75C5097A2742B13700F8CA2E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		75C5097E2742B29F00F8CA2E /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
-		75C509802743030E00F8CA2E /* HomeViewEsempio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewEsempio.swift; sourceTree = "<group>"; };
+		75F8A8CB2747E41100EBF06E /* HomeBookList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookList.swift; sourceTree = "<group>"; };
 		75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		75FA7DCC2745C02500DDF4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9CBB98CE2746B04600E27B94 /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationBookView.swift; sourceTree = "<group>"; };
 		9CBB98D02746B06D00E27B94 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
@@ -125,15 +122,14 @@
 		75C5096827429A3500F8CA2E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75C046B82746B07E004552AC /* CreationBookView.swift */,
+				75F8A8CA2747E3EB00EBF06E /* HomeView */,
 				B94A0FA327464755000FF9C8 /* AddQuoteView */,
 				75C509792742B12A00F8CA2E /* SearchView */,
 				75C509712742A30800F8CA2E /* QuotesView */,
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
+				75C046B82746B07E004552AC /* CreationBookView.swift */,
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
-				75C5096D27429F9200F8CA2E /* HomeView.swift */,
 				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
-				75C509802743030E00F8CA2E /* HomeViewEsempio.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +160,15 @@
 				75C5097A2742B13700F8CA2E /* SearchView.swift */,
 			);
 			path = SearchView;
+			sourceTree = "<group>";
+		};
+		75F8A8CA2747E3EB00EBF06E /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				75C5096D27429F9200F8CA2E /* HomeView.swift */,
+				75F8A8CB2747E41100EBF06E /* HomeBookList.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		B94A0F9F27464681000FF9C8 /* Frameworks */ = {
@@ -265,16 +270,15 @@
 				B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */,
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
 				75C046B92746B07E004552AC /* CreationBookView.swift in Sources */,
-				75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
 				75C046BF2746B0DD004552AC /* BookModel.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
-				B9A03C102746ADF900A825CA /* TextFromCamera.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
 				7531B43D2746A32B006B235D /* (null) in Sources */,
+				75F8A8CC2747E41100EBF06E /* HomeBookList.swift in Sources */,
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);

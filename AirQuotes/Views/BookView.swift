@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BookView: View {
+    let id: NSManagedObjectID?
     let color: Color
     let text: String
     
     @State private var showActionSheet = false
+    
+    init(_ id: NSManagedObjectID? = nil, color: Color, text: String) {
+        self.id = id
+        self.color = color
+        self.text = text
+    }
     
     var body: some View {
         VStack {
@@ -36,29 +44,33 @@ struct BookView: View {
             HStack {
                 Spacer()
                 
-                Button {
-                    showActionSheet = true
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .font(.title)
-                        .foregroundColor(.secondary)
+                if id != nil {
+                    Button {
+                        showActionSheet = true
+                    } label: {
+                        Image(systemName: "ellipsis")
+                            .font(.title)
+                            .foregroundColor(.secondary)
+                    }
+                    .actionSheet(isPresented: $showActionSheet) {
+                        ActionSheet(title: Text("Libro"),
+                                    buttons: [
+                                        .cancel(),
+                                        .destructive(
+                                            Text("Elimina"),
+                                            action: {
+                                                if let bookToDelete = PersistenceController.shared.getBookById(id: id!) {
+                                                    PersistenceController.shared.delete(book: bookToDelete)
+                                                }
+                                            }
+                                        ),
+                                    ]
+                        )
+                    }
                 }
-                .actionSheet(isPresented: $showActionSheet) {
-                    ActionSheet(title: Text("Libro"),
-                                buttons: [
-                                    .cancel(),
-                                    .destructive(
-                                        Text("Elimina"),
-                                        action: { print("A") }
-                                    ),
-                                ]
-                    )
-                }
+                
             }
             .offset(x: -8, y: 20)
-            
-            
-            
         }
         .aspectRatio(0.695, contentMode: .fit)
         

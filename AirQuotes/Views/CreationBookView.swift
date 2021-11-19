@@ -8,49 +8,33 @@
 import SwiftUI
 
 struct BookCreationView: View {
-
-
+    
+    
     var book: BookModel
     
-    @State var changeColor: Color = Color.gray
+    @State var chosenColor: String = "BookGreen"
     @Binding var isCreateBookModalOpen : Bool
     @State private var author = ""
     @State private var title = ""
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     
     var body: some View {
-        
         NavigationView {
             
-            VStack{
-            
+            VStack {
                 
-                Text("New Book")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
-                    .padding()
-                
-                BookView(color: changeColor, text: title)
+                BookView(color: Color(chosenColor), text: title)
                     .frame(height: 200)
                 
-                
-                Form{
-                        TextField("Title", text: $title)
-                            .frame(height: 50)
-                            //.font(.title2)
-                            //.foregroundColor(.gray)
-                            //.opacity(0.7)
-                           // .padding(.horizontal)
-                        TextField("Author", text: $author)
-                            .frame(height: 50)
-                            //.font(.title2)
-                           // .foregroundColor(.gray)
-                           // .opacity(0.7)
-                            //.padding(.horizontal)
-
+                Form {
+                    TextField("Title", text: $title)
+                        .frame(height: 50)
+                    TextField("Author", text: $author)
+                        .frame(height: 50)
                 }
+                .padding(.vertical)
                 
-                    .padding(.vertical)
                 HStack{
                     Text("Choose a Color")
                         .font(.title2)
@@ -61,28 +45,19 @@ struct BookCreationView: View {
                 }
                 
                 HStack{
-                    ColorButton(color: .red, changeColor: $changeColor)
-                    ColorButton(color: .green, changeColor: $changeColor)
-                    ColorButton(color: .yellow, changeColor: $changeColor)
-                    ColorButton(color: .pink, changeColor: $changeColor)
-                    ColorButton(color: .blue, changeColor: $changeColor)
-                        
+                    ColorButton(color: "BookRed", chosenColor: $chosenColor)
+                    ColorButton(color: "BookGreen", chosenColor: $chosenColor)
+                    ColorButton(color: "BookPink", chosenColor: $chosenColor)
+                    ColorButton(color: "BookLightBlue", chosenColor: $chosenColor)
                 }
                 .padding()
-                HStack{
-                    ColorButton(color: .orange, changeColor: $changeColor)
-                    ColorButton(color: .purple, changeColor: $changeColor)
-                    ColorButton(color: .white, changeColor: $changeColor)
-                    ColorButton(color: .black, changeColor: $changeColor)
-                    ColorButton(color: .gray, changeColor: $changeColor)
-                }
-                .padding(.bottom)
             }
-           // .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
             .toolbar(content: {
-                Button("Add", action: { isCreateBookModalOpen = false })
+                Button("Add", action: {
+                    PersistenceController.shared.createBook(color: chosenColor, title: title, author: author)
+                    isCreateBookModalOpen = false
+                })
             })
-            .foregroundColor(.none)
         }
     }
 }
@@ -95,16 +70,16 @@ struct BookCreationView_Previews: PreviewProvider {
 
 struct ColorButton: View {
     
-    let color: Color
-    @Binding var changeColor: Color
+    let color: String
+    @Binding var chosenColor: String
     
     var body: some View {
         Button {
-            changeColor = color
+            chosenColor = color
         } label: {
             Circle()
                 .frame(width: 50, height: 50)
-                .foregroundColor(color)
+                .foregroundColor(Color(color))
                 .padding(.horizontal, 10)
                 .overlay(Circle().stroke(Color.black, lineWidth: 0.5))
         }
