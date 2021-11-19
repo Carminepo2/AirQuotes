@@ -9,68 +9,67 @@ import SwiftUI
 
 
 
+
+
 struct QuoteForm: View {
     @State private var quote = ""
     @State private var by = ""
     @Binding var showModal: Bool
     
+    
     var body: some View {
         NavigationView {
-            Form {
-                
+            
 
-                    ZStack(alignment: .leading){
-                        if quote.isEmpty {
-                            Text("Quote")
-                                .foregroundColor(.secondary)
-                                .opacity(0.5)
 
+            
+                Form {
+                        ZStack(alignment: .leading){
+                            if quote.isEmpty {
+                                Text("Quote")
+                                    .foregroundColor(.secondary)
+                                    .opacity(0.5)
+
+                            }
+                            TextEditor(text: $quote)
                         }
-                        TextEditor(text: $quote)
-
-                    }
-                    
-                    
-                    ZStack(alignment: .leading){
-                        if by.isEmpty {
-                            Text("By")
-                                .foregroundColor(.secondary)
-                                .opacity(0.5)
+                        
+                        
+                        ZStack(alignment: .leading){
+                            if by.isEmpty {
+                                Text("By")
+                                    .foregroundColor(.secondary)
+                                    .opacity(0.5)
+                            }
+                            TextEditor(text: $by)
                         }
-                        TextEditor(text: $by)
-                    }
-                    
-                
-                
+                }
 
-                
-            }
             .navigationTitle("Add a new quote")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    
                     Button("Save") {
                         showModal.toggle()
 //                        add saveQuote function
                     }
-                }
-                
-                ToolbarItemGroup(placement: .keyboard) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "camera")
-                    }
-                }
-                
-                
-    
-                ToolbarItemGroup(placement: .navigationBarLeading)
-                {
-                    ScanButton(text: $quote)
-                       .frame(width: 100, height: 56, alignment: .leading)
+                    
+                    
+                    
                 }
 
+        
+                ToolbarItemGroup(placement: .keyboard)
+                {
+                    ScanButton(text: $quote)
+                        .frame(width: 100, height: 56, alignment: .leading)
+                }
+                
+                
+                
             }
+            
+            
         }
     }
 }
