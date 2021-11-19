@@ -13,8 +13,8 @@ struct BookshelfView: View {
             Color.themeColor
                 .ignoresSafeArea()
             ScrollView {
-                VStack{
-                HStack{
+                VStack(spacing:30){
+                    HStack{
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                     Text("+")
@@ -40,7 +40,7 @@ struct BookshelfView: View {
                     BookView(color: .bookColorOne, text: "Harry Potter and the Test")
                     .frame(width: 200.0, height: 200.0)
                 } .padding()
-                    .offset(y: +10)
+                    
                 
                 HStack{
                     BookView(color: .bookColorOne, text: "Harry Potter and the Test")
@@ -49,7 +49,6 @@ struct BookshelfView: View {
                     BookView(color: .bookColorOne, text: "Harry Potter and the Test")
                     .frame(width: 200.0, height: 200.0)
                 } .padding()
-                    .offset(y: +10)
                 }
             }
             
