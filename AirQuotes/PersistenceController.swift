@@ -92,6 +92,33 @@ final class PersistenceController {
         save()
     }
     
+    // MARK: - Books Data Functions
+    
+    func createBook(color: String, title: String, author: String) {
+        let newBook = Book(context: viewContext)
+        newBook.color = color
+        newBook.id = UUID()
+        newBook.title = title
+        newBook.author = author
+        newBook.createdAt = Date()
+        newBook.updatedAt = Date()
+        save()
+    }
+    
+    func delete(book: Book) {
+        viewContext.delete(book)
+        save()
+    }
+    
+    func getBookById(id: NSManagedObjectID) -> Book? {
+        do {
+            return try viewContext.existingObject(with: id) as? Book
+        } catch {
+            return nil
+        }
+    }
+
+    
 
 }
 
