@@ -25,6 +25,7 @@
 		75F8A8CC2747E41100EBF06E /* HomeBookList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8A8CB2747E41100EBF06E /* HomeBookList.swift */; };
 		75F8A8CE2747F07600EBF06E /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8A8CD2747F07600EBF06E /* BookshelfView.swift */; };
 		75FA7DCB2745B91900DDF4CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */; };
+		9CBB98D32747E55600E27B94 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98D22747E55600E27B94 /* TagView.swift */; };
 		B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B94A0FA1274646C0000FF9C8 /* ScanTextField */; };
 		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
@@ -54,6 +55,7 @@
 		75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		75FA7DCC2745C02500DDF4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9CBB98D02746B06D00E27B94 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		9CBB98D22747E55600E27B94 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
 		B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
@@ -135,6 +137,8 @@
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
 				75C046B82746B07E004552AC /* CreationBookView.swift */,
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
+				75C5096D27429F9200F8CA2E /* HomeView.swift */,
+				9CBB98D22747E55600E27B94 /* TagView.swift */,
 				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
 			);
 			path = Views;
@@ -281,6 +285,7 @@
 				75C046B92746B07E004552AC /* CreationBookView.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
 				B9A03C162746B4A200A825CA /* BookModel.swift in Sources */,
+				9CBB98D32747E55600E27B94 /* TagView.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
