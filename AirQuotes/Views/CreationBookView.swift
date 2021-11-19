@@ -19,43 +19,37 @@ struct BookCreationView: View {
     
     var body: some View {
         
-        NavigationView{
+        NavigationView {
+            
             VStack{
-
+            
+                
                 Text("New Book")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    Spacer()
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
                 
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(width: 200, height: 300, alignment: .center)
-                    .foregroundColor(changeColor)
-                    .padding(.horizontal)
-                    .shadow(color: .black, radius: 2, x: 3.0, y: 3.0)
-                    .padding(.bottom, 40)
-                    //Spacer()
+                BookView(color: changeColor, text: title)
+                    .frame(height: 200)
                 
-                HStack{
-                    TextField("Title", text: $title)
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                        .opacity(0.7)
-                        .padding(.horizontal)
-                    Spacer()
+                
+                Form{
+                        TextField("Title", text: $title)
+                            .frame(height: 50)
+                            //.font(.title2)
+                            //.foregroundColor(.gray)
+                            //.opacity(0.7)
+                           // .padding(.horizontal)
+                        TextField("Author", text: $author)
+                            .frame(height: 50)
+                            //.font(.title2)
+                           // .foregroundColor(.gray)
+                           // .opacity(0.7)
+                            //.padding(.horizontal)
+
                 }
                 
-                DividerMartina()
-                    .padding(.vertical)
-                HStack{
-                    TextField("Author", text: $author)
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                        .opacity(0.7)
-                        .padding(.horizontal)
-                    Spacer()
-                }
-                
-                DividerMartina()
                     .padding(.vertical)
                 HStack{
                     Text("Choose a Color")
@@ -84,7 +78,10 @@ struct BookCreationView: View {
                 }
                 .padding(.bottom)
             }
-            .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
+           // .navigationBarItems(trailing: Button("Add", action: { isCreateBookModalOpen = false }))
+            .toolbar(content: {
+                Button("Add", action: { isCreateBookModalOpen = false })
+            })
             .foregroundColor(.none)
         }
     }

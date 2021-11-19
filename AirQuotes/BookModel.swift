@@ -8,12 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct BookModel/*: Identifiable*/{
-   // var id: ObjectIdentifier
+struct BookModel{
     
     var title: String
     var color : Color
     var author: String
     
-    static let example = BookModel(title: "Title", color: .gray, author: "Author")
+    static let example = BookModel(title: "", color: .gray, author: "")
 }
