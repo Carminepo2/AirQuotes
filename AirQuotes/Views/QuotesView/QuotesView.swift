@@ -33,6 +33,8 @@ struct QuotesView: View {
                 switch(quotesViewModel.actualViewType) {
                     case .tags:
                         TagsListView()
+                    case .bookshelf:
+                        BookshelfView()
                     default:
                         VStack {
                             Text(quotesViewModel.actualViewType.rawValue)

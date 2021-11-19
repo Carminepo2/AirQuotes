@@ -23,18 +23,20 @@ struct BookView: View {
     
     var body: some View {
         
-        if id != nil {
+        
+        if let id = id {
+            
             BookRectangle(color: color, text: text)
                 .contextMenu {
                     Button(role: .destructive) {
-                        if let bookToDelete = PersistenceController.shared.getBookById(id: id!) {
+                        if let bookToDelete = PersistenceController.shared.getBookById(id: id) {
                             PersistenceController.shared.delete(book: bookToDelete)
                         }
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
-                    
                 }
+            
         } else {
             BookRectangle(color: color, text: text)
         }
