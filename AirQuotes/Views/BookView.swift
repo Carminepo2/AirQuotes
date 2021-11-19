@@ -6,64 +6,68 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BookView: View {
+    let id: NSManagedObjectID?
     let color: Color
     let text: String
     
     @State private var showActionSheet = false
     
+    init(_ id: NSManagedObjectID? = nil, color: Color, text: String) {
+        self.id = id
+        self.color = color
+        self.text = text
+    }
+    
     var body: some View {
-        VStack {
-            Rectangle()
-                .fill(color)
-                .cornerRadius(10)
-            
-                .shadow(color: shadowColor, radius: 5, x: 0, y: 0)
-                .overlay {
-                    VStack {
-                        Text(text)
-                            .font(.system(size: 60, weight: .heavy))
-                            .foregroundColor(.secondary)
-                            .lineLimit(4)
-                            .padding()
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
+        
+        if id != nil {
+            BookRectangle(color: color, text: text)
+                .contextMenu {
+                    Button(role: .destructive) {
+                        if let bookToDelete = PersistenceController.shared.getBookById(id: id!) {
+                            PersistenceController.shared.delete(book: bookToDelete)
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
                     }
+                    
                 }
-            
-            HStack {
-                Spacer()
-                
-                Button {
-                    showActionSheet = true
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .font(.title)
+        } else {
+            BookRectangle(color: color, text: text)
+        }
+        
+        
+    }
+    
+    
+}
+
+struct BookRectangle: View {
+    
+    let color: Color
+    let text: String
+    
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .cornerRadius(10)
+            .shadow(color: shadowColor, radius: 5, x: 0, y: 0)
+            .overlay {
+                VStack {
+                    Text(text)
+                        .font(.system(size: 60, weight: .heavy))
                         .foregroundColor(.secondary)
-                }
-                .actionSheet(isPresented: $showActionSheet) {
-                    ActionSheet(title: Text("Libro"),
-                                buttons: [
-                                    .cancel(),
-                                    .destructive(
-                                        Text("Elimina"),
-                                        action: { print("A") }
-                                    ),
-                                ]
-                    )
+                        .lineLimit(4)
+                        .padding()
+                        .minimumScaleFactor(0.5)
+                    
+                    Spacer()
                 }
             }
-            .offset(x: -8, y: 20)
-            
-            
-            
-        }
-        .aspectRatio(0.695, contentMode: .fit)
-        
-        
-        
+            .aspectRatio(0.695, contentMode: .fit)
     }
     
     private let shadowColor = Color(red: 0, green: 0, blue: 0, opacity: 0.1)
