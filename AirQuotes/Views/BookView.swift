@@ -22,60 +22,52 @@ struct BookView: View {
     }
     
     var body: some View {
-        VStack {
-            Rectangle()
-                .fill(color)
-                .cornerRadius(10)
-            
-                .shadow(color: shadowColor, radius: 5, x: 0, y: 0)
-                .overlay {
-                    VStack {
-                        Text(text)
-                            .font(.system(size: 60, weight: .heavy))
-                            .foregroundColor(.secondary)
-                            .lineLimit(4)
-                            .padding()
-                            .minimumScaleFactor(0.5)
-                        
-                        Spacer()
-                    }
-                }
-            
-            HStack {
-                Spacer()
-                
-                if id != nil {
-                    Button {
-                        showActionSheet = true
+        
+        if id != nil {
+            BookRectangle(color: color, text: text)
+                .contextMenu {
+                    Button(role: .destructive) {
+                        if let bookToDelete = PersistenceController.shared.getBookById(id: id!) {
+                            PersistenceController.shared.delete(book: bookToDelete)
+                        }
                     } label: {
-                        Image(systemName: "ellipsis")
-                            .font(.title)
-                            .foregroundColor(.secondary)
+                        Label("Delete", systemImage: "trash")
                     }
-                    .actionSheet(isPresented: $showActionSheet) {
-                        ActionSheet(title: Text("Libro"),
-                                    buttons: [
-                                        .cancel(),
-                                        .destructive(
-                                            Text("Elimina"),
-                                            action: {
-                                                if let bookToDelete = PersistenceController.shared.getBookById(id: id!) {
-                                                    PersistenceController.shared.delete(book: bookToDelete)
-                                                }
-                                            }
-                                        ),
-                                    ]
-                        )
-                    }
+                    
                 }
-                
-            }
-            .offset(x: -8, y: 20)
+        } else {
+            BookRectangle(color: color, text: text)
         }
-        .aspectRatio(0.695, contentMode: .fit)
         
         
-        
+    }
+    
+    
+}
+
+struct BookRectangle: View {
+    
+    let color: Color
+    let text: String
+    
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .cornerRadius(10)
+            .shadow(color: shadowColor, radius: 5, x: 0, y: 0)
+            .overlay {
+                VStack {
+                    Text(text)
+                        .font(.system(size: 60, weight: .heavy))
+                        .foregroundColor(.secondary)
+                        .lineLimit(4)
+                        .padding()
+                        .minimumScaleFactor(0.5)
+                    
+                    Spacer()
+                }
+            }
+            .aspectRatio(0.695, contentMode: .fit)
     }
     
     private let shadowColor = Color(red: 0, green: 0, blue: 0, opacity: 0.1)
