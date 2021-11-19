@@ -10,21 +10,21 @@ import SwiftUI
 struct ListQuotesBook: View {
     
     
+    
     var body: some View {
         
         NavigationView {
-            VStack(spacing:30) {
-                VStack{
-                    Divider()
-                    Text("“It is impossible to manufacture or imitate love”")
+            List {
+                    QuoteInList()
+                QuoteInList()
+                QuoteInList()
+                QuoteInList()
+                QuoteInList()
+                QuoteInList()
+                QuoteInList()
                     
-                    Spacer()
-                        Text("Horace Slughorn.")
-                        Spacer()
-                    } .padding(.horizontal)
-                    
-                
-            }
+                }
+
             .navigationTitle("Harry Potter")
             .toolbar {
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {

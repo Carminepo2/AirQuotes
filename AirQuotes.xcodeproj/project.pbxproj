@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		7531B43D2746A32B006B235D /* (null) in Sources */ = {isa = PBXBuildFile; };
 		75BF6055274458360099A9C8 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF6054274458360099A9C8 /* TagsListView.swift */; };
-		75C046B92746B07E004552AC /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C046B82746B07E004552AC /* CreationBookView.swift */; };
-		75C046BF2746B0DD004552AC /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C046BE2746B0DD004552AC /* BookModel.swift */; };
 		75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA182744417E00DEA1BB /* PersistenceController.swift */; };
 		75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75C4CA1A274441E700DEA1BB /* AirQuotesModel.xcdatamodeld */; };
 		75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C50959274299BB00F8CA2E /* AirQuotesApp.swift */; };
@@ -25,8 +23,6 @@
 		75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5097E2742B29F00F8CA2E /* BookView.swift */; };
 		75C509812743030E00F8CA2E /* HomeViewEsempio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C509802743030E00F8CA2E /* HomeViewEsempio.swift */; };
 		75FA7DCB2745B91900DDF4CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */; };
-		9CBB98CF2746B04600E27B94 /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98CE2746B04600E27B94 /* CreationBookView.swift */; };
-		9CBB98D12746B06D00E27B94 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98D02746B06D00E27B94 /* BookModel.swift */; };
 		B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B94A0FA1274646C0000FF9C8 /* ScanTextField */; };
 		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
@@ -34,12 +30,14 @@
 		B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C112746B0EE00A825CA /* ScanButton.swift */; };
 		B9A03C142746B43600A825CA /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C132746B43600A825CA /* CreationBookView.swift */; };
 		B9A03C162746B4A200A825CA /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C152746B4A200A825CA /* BookModel.swift */; };
+		DEEB00A22747E7E7002D2039 /* ListQuotesBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */; };
+		DEEB00A32747E7E7002D2039 /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A12747E7E7002D2039 /* BookshelfView.swift */; };
+		DEEB00A52747F9A5002D2039 /* QuoteInList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A42747F9A5002D2039 /* QuoteInList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		75BF6054274458360099A9C8 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 		75C046B82746B07E004552AC /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationBookView.swift; sourceTree = "<group>"; };
-		75C046BE2746B0DD004552AC /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		75C4CA182744417E00DEA1BB /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AirQuotesModel.xcdatamodel; sourceTree = "<group>"; };
 		75C50956274299BB00F8CA2E /* AirQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +54,6 @@
 		75C509802743030E00F8CA2E /* HomeViewEsempio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewEsempio.swift; sourceTree = "<group>"; };
 		75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		75FA7DCC2745C02500DDF4CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		9CBB98CE2746B04600E27B94 /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationBookView.swift; sourceTree = "<group>"; };
 		9CBB98D02746B06D00E27B94 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
@@ -64,6 +61,9 @@
 		B9A03C112746B0EE00A825CA /* ScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
 		B9A03C132746B43600A825CA /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreationBookView.swift; path = AirQuotes/Views/CreationBookView.swift; sourceTree = SOURCE_ROOT; };
 		B9A03C152746B4A200A825CA /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListQuotesBook.swift; sourceTree = "<group>"; };
+		DEEB00A12747E7E7002D2039 /* BookshelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookshelfView.swift; sourceTree = "<group>"; };
+		DEEB00A42747F9A5002D2039 /* QuoteInList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +139,9 @@
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				75C5096D27429F9200F8CA2E /* HomeView.swift */,
 				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
+				DEEB00A12747E7E7002D2039 /* BookshelfView.swift */,
+				DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */,
+				DEEB00A42747F9A5002D2039 /* QuoteInList.swift */,
 				75C509802743030E00F8CA2E /* HomeViewEsempio.swift */,
 			);
 			path = Views;
@@ -278,12 +281,15 @@
 				B9A03C162746B4A200A825CA /* BookModel.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */,
+				DEEB00A52747F9A5002D2039 /* QuoteInList.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
 				75C5097027429FDF00F8CA2E /* QuotesView.swift in Sources */,
 				7531B43D2746A32B006B235D /* (null) in Sources */,
+				DEEB00A22747E7E7002D2039 /* ListQuotesBook.swift in Sources */,
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
+				DEEB00A32747E7E7002D2039 /* BookshelfView.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,16 +524,6 @@
 				75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */,
 			);
 			currentVersion = 75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */;
-			path = AirQuotesModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		DE9E44A02746B12800576EEA /* AirQuotesModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */,
-			);
-			currentVersion = DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */;
 			path = AirQuotesModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
