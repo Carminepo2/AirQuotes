@@ -29,6 +29,9 @@
 		B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA6274647DC000FF9C8 /* AddQuote.swift */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
 		B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */; };
+		B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C112746B0EE00A825CA /* ScanButton.swift */; };
+		B9A03C142746B43600A825CA /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C132746B43600A825CA /* CreationBookView.swift */; };
+		B9A03C162746B4A200A825CA /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C152746B4A200A825CA /* BookModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +58,9 @@
 		B94A0FA6274647DC000FF9C8 /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddQuote.swift; path = AirQuotes/Views/AddQuote.swift; sourceTree = SOURCE_ROOT; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
 		B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
+		B9A03C112746B0EE00A825CA /* ScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
+		B9A03C132746B43600A825CA /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreationBookView.swift; path = AirQuotes/Views/CreationBookView.swift; sourceTree = SOURCE_ROOT; };
+		B9A03C152746B4A200A825CA /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +103,7 @@
 		75C50958274299BB00F8CA2E /* AirQuotes */ = {
 			isa = PBXGroup;
 			children = (
-				75C046BE2746B0DD004552AC /* BookModel.swift */,
+				B9A03C152746B4A200A825CA /* BookModel.swift */,
 				75FA7DCC2745C02500DDF4CD /* Info.plist */,
 				75C50959274299BB00F8CA2E /* AirQuotesApp.swift */,
 				9CBB98D02746B06D00E27B94 /* BookModel.swift */,
@@ -137,6 +143,7 @@
 		75C509712742A30800F8CA2E /* QuotesView */ = {
 			isa = PBXGroup;
 			children = (
+				B9A03C132746B43600A825CA /* CreationBookView.swift */,
 				75BF6053274458290099A9C8 /* TagsListView */,
 				75C5096F27429FDF00F8CA2E /* QuotesView.swift */,
 				75C509722742A31A00F8CA2E /* QuotesViewModel.swift */,
@@ -150,6 +157,7 @@
 				B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */,
 				75C509772742AF8200F8CA2E /* Theme.swift */,
 				75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */,
+				B9A03C112746B0EE00A825CA /* ScanButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -271,8 +279,9 @@
 				75C5096E27429F9200F8CA2E /* HomeView.swift in Sources */,
 				75C046B92746B07E004552AC /* CreationBookView.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
-				75C046BF2746B0DD004552AC /* BookModel.swift in Sources */,
+				B9A03C162746B4A200A825CA /* BookModel.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
+				B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */,
 				75C5097B2742B13700F8CA2E /* SearchView.swift in Sources */,
 				75C5095A274299BB00F8CA2E /* AirQuotesApp.swift in Sources */,
 				B94A0FA7274647DC000FF9C8 /* AddQuote.swift in Sources */,
@@ -514,6 +523,16 @@
 				75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */,
 			);
 			currentVersion = 75C4CA1B274441E700DEA1BB /* AirQuotesModel.xcdatamodel */;
+			path = AirQuotesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		DE9E44A02746B12800576EEA /* AirQuotesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */,
+			);
+			currentVersion = DE9E44A12746B12800576EEA /* AirQuotesModel.xcdatamodel */;
 			path = AirQuotesModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
