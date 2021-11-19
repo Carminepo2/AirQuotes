@@ -21,7 +21,12 @@ struct HomeBookList: View {
         ScrollView(.horizontal) {
             HStack(spacing: 25) {
                 ForEach(books) { book in
-                    BookView(book.objectID, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                    NavigationLink {
+                        ListQuotesBook()
+                    } label: {
+                        BookView(book.objectID, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                    }
+
                 }
             }.padding(35)
         }

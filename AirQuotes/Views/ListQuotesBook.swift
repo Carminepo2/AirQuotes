@@ -13,15 +13,15 @@ struct ListQuotesBook: View {
     
     var body: some View {
         
-        NavigationView {
+        Group {
             List {
                     QuoteInList()
-                QuoteInList()
-                QuoteInList()
-                QuoteInList()
-                QuoteInList()
-                QuoteInList()
-                QuoteInList()
+                    QuoteInList()
+                    QuoteInList()
+                    QuoteInList()
+                    QuoteInList()
+                    QuoteInList()
+                    QuoteInList()
                     
                 }
 
