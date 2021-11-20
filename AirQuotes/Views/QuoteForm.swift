@@ -52,9 +52,15 @@ struct QuoteForm: View {
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button("Save") {
-                            showModal.toggle()
-                            // add saveQuote function
+                        
+                        if quote.isEmpty{
+                            Text("Save")
+                                .foregroundColor(.gray)
+                        } else {
+                            Button("Save", action: {
+                                showModal.toggle()
+                                // add saveQuote function
+                            })
                         }
                     }
                     ToolbarItemGroup(placement: .keyboard) {

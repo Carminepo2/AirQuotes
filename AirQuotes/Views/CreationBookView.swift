@@ -46,13 +46,21 @@ struct BookCreationView: View {
                     }
                 }
                 .offset(y: -20)
+                
                 .toolbar(content: {
-                    Button("Add", action: {
-                        PersistenceController.shared.createBook(color: chosenColor, title: title, author: author)
-                        isCreateBookModalOpen = false
-                    })
+                    if title.isEmpty{
+                        Text("Add")
+                            .foregroundColor(.gray)
+                    } else {
+                        Button("Add", action: {
+                            PersistenceController.shared.createBook(color: chosenColor, title: title, author: author)
+                            isCreateBookModalOpen = false
+                        })
+                    }
                 })
-            }}
+                
+            }
+        }
     }
 }
 
