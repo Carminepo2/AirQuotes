@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BookshelfView: View {
     
@@ -14,36 +15,26 @@ struct BookshelfView: View {
     @FetchRequest(
         entity: Book.entity(),
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Book.title, ascending: false)
+            NSSortDescriptor(keyPath: \Book.title, ascending: true)
         ]
     ) var books: FetchedResults<Book>
     
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    
     var body: some View {
-        Group {
-            VStack(spacing:20){
-                HStack{
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
+       
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(books) { book in
+                    BookView(book.objectID, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                        .padding()
                 }
                 
-                HStack{
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                }
-                
-                
-                HStack{
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    
-                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    
-                }
-            }
+            }.padding()
+            Spacer()
             
-            
-        }.padding()
         
     }
 }
