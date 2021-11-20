@@ -57,9 +57,9 @@ struct BookRectangle: View {
             .overlay {
                 VStack {
                     Text(text)
-                        .font(.system(size: 60, weight: .heavy))
+                        .font(.system(size: 40, weight: .heavy))
                         .foregroundColor(.secondary)
-                        .lineLimit(4)
+                        .lineLimit(5)
                         .padding()
                         .minimumScaleFactor(0.5)
                     
@@ -79,6 +79,7 @@ struct BookView_Previews: PreviewProvider {
             .padding()
     }
 }
+
 
 
 // Carmine: Ho provato a mettere un'ombreggiatura interna nel testo del libro per simulare un testo inciso.. Non mi ha convinto.
