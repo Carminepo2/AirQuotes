@@ -17,7 +17,7 @@ struct ListQuotesBook: View {
             List {
                 ForEach(0..<10) {
                     _ in
-                    NavigationLink(destination: QuoteView()) {
+                    NavigationLink(destination: QuoteView(quote: "It is impossible to manufacture or imitate love", author: "Horace Slughorn")) {
                         QuoteInList()
                     }
                 }
