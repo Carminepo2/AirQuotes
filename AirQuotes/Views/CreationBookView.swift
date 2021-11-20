@@ -60,10 +60,6 @@ struct BookCreationView: View {
                 })
                 
             }
-            
-            
-            
-            
         }
     }
 }
