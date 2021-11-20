@@ -72,7 +72,7 @@ struct HomeView: View {
                             isCreateBookModalOpen.toggle()
                          }
                         .sheet(isPresented: $isCreateBookModalOpen, content: {
-                            BookCreationView(book: .example, isCreateBookModalOpen: $isCreateBookModalOpen)
+                            BookCreationView(isCreateBookModalOpen: $isCreateBookModalOpen)
                         })
                     
                     }.padding(.horizontal)
