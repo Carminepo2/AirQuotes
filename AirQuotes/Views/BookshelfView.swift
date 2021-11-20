@@ -19,35 +19,31 @@ struct BookshelfView: View {
     ) var books: FetchedResults<Book>
     
     var body: some View {
-        ZStack {
-            ScrollView {
-                VStack(spacing:20){
-                    HStack{
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                        
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    }
+        Group {
+            VStack(spacing:20){
+                HStack{
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
                     
-                    HStack{
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                        
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                    }
-                    
-                    
-                    HStack{
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                        
-                        BookView(color: .bookColorOne, text: "Harry Potter and the Test")
-                            
-                    }
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
                 }
                 
-            }.padding()
+                HStack{
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
+                    
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
+                }
+                
+                
+                HStack{
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
+                    
+                    BookView(color: .bookColorOne, text: "Harry Potter and the Test")
+                    
+                }
+            }
             
             
-            
-        }
+        }.padding()
         
     }
 }
