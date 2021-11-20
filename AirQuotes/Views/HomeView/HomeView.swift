@@ -53,12 +53,12 @@ struct HomeView: View {
                     Button("Add Quote") {
                         showModal.toggle()
                     }
-                    .buttonStyle(RoundedRectangleButtonStyle())
-                    .padding()
-                    .padding(.bottom, 20)
-                    .sheet(isPresented: $showModal, content: {
-                        QuoteForm(showModal: $showModal)
-                    })
+                        .buttonStyle(RoundedRectangleButtonStyle())
+                        .padding()
+                        .padding(.bottom, 20)
+                        .sheet(isPresented: $showModal, content: {
+                            QuoteForm(showModal: $showModal)
+                        })
                     
                     HStack {
                         Text("Recent books")

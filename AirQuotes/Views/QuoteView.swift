@@ -12,9 +12,7 @@ struct QuoteView: View {
     let quote: String
     let author: String
     @State var favourite: Bool = false
-    
- //   private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-//    private var symbols = ["", "hifispeaker.fill", "printer.fill"]
+    @State private var showActionSheet = false
     
     var body: some View {
         ScrollView{
@@ -28,15 +26,16 @@ struct QuoteView: View {
                             Image("QuoteStart")
                             Spacer()
                         }
+                        
                         Text("\(quote)")
                             .font(.largeTitle)
                             .fontWeight(.regular)
-                            .frame(width: 220, height: 250)
                             .multilineTextAlignment(.center)
-                            .frame(maxWidth: 410, maxHeight: 500)
                             .foregroundColor(Color.gray)
                             .opacity(0.7)
-                            //.lineLimit(700)
+                            .lineLimit(100)
+                            .padding(.horizontal)
+                        
                         HStack{
                             Spacer()
                             Image("QuoteEnd")
@@ -57,7 +56,6 @@ struct QuoteView: View {
                         .font(.title)
                         .padding(.horizontal)
                     Spacer()
-                    
                 }
                 
                 HStack{
@@ -78,26 +76,6 @@ struct QuoteView: View {
                 }
                 
                 Spacer()
-                
-               /* HStack{
-                    if favourite{
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.red)
-                            .padding()
-                            .scaleEffect(1.9)
-                            .onTapGesture {
-                                favourite = false
-                            }
-                    } else{
-                        Image(systemName: "heart")
-                            .foregroundColor(.red)
-                            .padding()
-                            .scaleEffect(1.9)
-                            .onTapGesture {
-                                favourite = true
-                            }
-                    }
-                }*/
             }
         }
         .toolbar{
@@ -125,7 +103,29 @@ struct QuoteView: View {
                     }
                 }
             }
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button{
+                
+                }label:{
+                    
+                Image(systemName: "ellipsis")
+                    .onTapGesture {
+                        showActionSheet = true
+                    }
+                }
+            }
         }
+        .actionSheet(isPresented: $showActionSheet, content: {
+                    ActionSheet(title: Text("Choose"), buttons: [
+                        .default(Text("Edit")) {
+                            
+                        },
+                        .default(Text("Delete quote")) {
+                            
+                        },
+                        .cancel()
+                        ])
+        })
     }
 }
 
