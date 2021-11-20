@@ -11,6 +11,11 @@ struct QuoteView: View {
     
     let quote: String
     let author: String
+    @State var favourite: Bool = false
+    
+ //   private var threeColumnGrid = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+//    private var symbols = ["", "hifispeaker.fill", "printer.fill"]
+    
     var body: some View {
         ScrollView{
             VStack{
@@ -62,14 +67,62 @@ struct QuoteView: View {
                     
                     Button {
                         
+                        
                     } label: {
                         
                         Image(systemName: "plus.circle")
                             .frame(width: 30, height: 30)
                             .foregroundColor(.blue)
-                        
+                            .scaleEffect(2)
                     }
+                }
+                
+                Spacer()
+                
+               /* HStack{
+                    if favourite{
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .padding()
+                            .scaleEffect(1.9)
+                            .onTapGesture {
+                                favourite = false
+                            }
+                    } else{
+                        Image(systemName: "heart")
+                            .foregroundColor(.red)
+                            .padding()
+                            .scaleEffect(1.9)
+                            .onTapGesture {
+                                favourite = true
+                            }
+                    }
+                }*/
+            }
+        }
+        .toolbar{
+            ToolbarItemGroup() {
+                Button{
+                
+                }label:{
                     
+                    if favourite{
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .padding()
+                            .scaleEffect(1.6)
+                            .onTapGesture {
+                                favourite = false
+                            }
+                    } else{
+                        Image(systemName: "heart")
+                            .foregroundColor(.blue)
+                            .padding()
+                            .scaleEffect(1.6)
+                            .onTapGesture {
+                                favourite = true
+                            }
+                    }
                 }
             }
         }
