@@ -16,23 +16,21 @@ struct BookCreationView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
-        
-        
-        ZStack {
-            Color.themeColor
-                .ignoresSafeArea()
-            
-            NavigationView {
+        NavigationView {
+            ZStack {
+                Color.themeColor
+                    .ignoresSafeArea()
                 VStack {
                     BookView(color: Color(chosenColor), text: title)
                         .frame(height: 220)
                     
                     Form {
-                        
-                        TextField("Title", text: $title)
-                            .frame(height: 50)
-                        TextField("Author", text: $author)
-                            .frame(height: 50)
+                        Section(header: Text("New Book")) {
+                            TextField("Title", text: $title)
+                                .frame(height: 50)
+                            TextField("Author", text: $author)
+                                .frame(height: 50)
+                        }
                         
                         
                         Section(header: Text("Pick a color")) {
@@ -44,15 +42,8 @@ struct BookCreationView: View {
                                 ColorButtonPicker(colorName: "BookLightBlue", chosenColor: $chosenColor)
                             }
                             .padding(.horizontal)
-                            .padding(.top)
                         }
-                        
                     }
-                    .onAppear {
-                        UITableView.appearance().backgroundColor = .clear
-                    }
-                    
-                    
                 }
                 .offset(y: -20)
                 
@@ -78,6 +69,7 @@ struct BookCreationView: View {
 }
 
 
+
 struct BookCreationView_Previews: PreviewProvider {
     static var previews: some View {
         BookCreationView(isCreateBookModalOpen: .constant(true))
@@ -97,7 +89,10 @@ struct ColorButtonPicker: View {
                 .fill(Color(colorName))
                 .frame(width: buttonSize, height: buttonSize)
                 .onTapGesture(perform: {
-                    chosenColor = colorName
+                    withAnimation {
+                        chosenColor = colorName
+                    }
+                    
                 })
                 .padding(10)
             

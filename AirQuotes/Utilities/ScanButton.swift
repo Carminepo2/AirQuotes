@@ -18,6 +18,7 @@ struct ScanButton: UIViewRepresentable {
         responder: context.coordinator,
         identifier: nil)
       let button = UIButton(primaryAction: textFromCamera)
+      button.setTitle("Scan Quote", for: .normal)
     return button
   }
 
