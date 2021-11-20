@@ -12,6 +12,10 @@ struct AirQuotesApp: App {
     @Environment(\.scenePhase) var scenePhase
     let persistenceController = PersistenceController.shared
     
+    init() {
+        UITableView.appearance().backgroundColor = .themeColor
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavgationView()
