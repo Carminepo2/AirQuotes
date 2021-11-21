@@ -33,22 +33,11 @@ struct HomeView: View {
                     
                     DividerMartina()
                     
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(height: 200)
-                            .foregroundColor(Color.gray)
-                            .opacity(0.2)
-                            .padding()
-                        Text("Write your first quote!")
-                            .foregroundColor(Color.gray)
-                            .opacity(0.5)
-                    }
-                    Circle()
-                        .frame(width: 8, height: 8, alignment: .center)
-                        //.position(x: 164, y: -12)
-                        .offset(y: -10)
-                        .opacity(0.4)
-                    
+                    QuoteSliderView()
+                        .frame(height: 300)
+                        .padding(.top, -35)
+                        .padding(.bottom, -10)
+
                     
                     Button("Add Quote") {
                         showModal.toggle()
