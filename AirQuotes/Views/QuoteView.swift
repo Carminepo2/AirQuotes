@@ -120,7 +120,7 @@ struct QuoteView: View {
                         .default(Text("Edit")) {
                             
                         },
-                        .default(Text("Delete quote")) {
+                        .default(Text("Delete")) {
                             
                         },
                         .cancel()
