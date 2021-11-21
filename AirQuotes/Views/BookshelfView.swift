@@ -19,6 +19,8 @@ struct BookshelfView: View {
         ]
     ) var books: FetchedResults<Book>
     
+    
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -28,8 +30,12 @@ struct BookshelfView: View {
        
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(books) { book in
-                    BookView(book.objectID, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
-                        .padding()
+                    NavigationLink {
+                        ListQuotesBook()
+                    } label: {
+                        BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                            .padding()
+                    }
                 }
                 
             }.padding()

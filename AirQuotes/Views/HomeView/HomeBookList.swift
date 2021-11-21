@@ -24,7 +24,7 @@ struct HomeBookList: View {
                     NavigationLink {
                         ListQuotesBook()
                     } label: {
-                        BookView(book.objectID, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                        BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
                     }
 
                 }

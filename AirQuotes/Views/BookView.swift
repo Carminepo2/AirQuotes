@@ -9,29 +9,40 @@ import SwiftUI
 import CoreData
 
 struct BookView: View {
-    let id: NSManagedObjectID?
+    let book: Book?
     let color: Color
     let text: String
     
     @State private var showActionSheet = false
+    @State private var showEditSheet = false
     
-    init(_ id: NSManagedObjectID? = nil, color: Color, text: String) {
-        self.id = id
+    init(_ book: Book? = nil, color: Color, text: String) {
+        self.book = book
         self.color = color
         self.text = text
     }
     
     var body: some View {
-        if let id = id {
+        if let book = book {
             BookRectangle(color: color, text: text)
                 .contextMenu {
-                    Button(role: .destructive) {
-                        if let bookToDelete = PersistenceController.shared.getBookById(id: id) {
-                            PersistenceController.shared.delete(book: bookToDelete)
+                    VStack {
+                        Button() {
+                            showEditSheet = true
+                        } label: {
+                            Label("Edit", systemImage: "pencil")
                         }
-                    } label: {
-                        Label("Delete", systemImage: "trash")
+                        
+                        Button(role: .destructive) {
+                            PersistenceController.shared.delete(book: book)
+                            
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
                     }
+                }
+                .sheet(isPresented: $showEditSheet) {
+                    BookCreationView(isCreateBookModalOpen: $showEditSheet, book)
                 }
             
         } else {
@@ -62,6 +73,7 @@ struct BookRectangle: View {
                         .lineLimit(5)
                         .padding()
                         .minimumScaleFactor(0.5)
+                        .multilineTextAlignment(.leading)
                     
                     Spacer()
                 }
