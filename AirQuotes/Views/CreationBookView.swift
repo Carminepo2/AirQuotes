@@ -6,13 +6,28 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct BookCreationView: View {
     
     @State var chosenColor: String = "BookGreen"
-    @Binding var isCreateBookModalOpen : Bool
+    @Binding var isCreateBookModalOpen: Bool
     @State private var author = ""
     @State private var title = ""
+    @State private var bookToUpdate: Book? = nil
+
+    init (isCreateBookModalOpen: Binding<Bool>, _ bookToUpdate: Book? = nil) {
+        _isCreateBookModalOpen = isCreateBookModalOpen
+        
+        if let bookToUpdate = bookToUpdate {
+                self._bookToUpdate = State(wrappedValue: bookToUpdate)
+                self._title = State(wrappedValue: bookToUpdate.title ?? "")
+                self._author = State(wrappedValue: bookToUpdate.author ?? "")
+                self._chosenColor = State(wrappedValue: bookToUpdate.color ?? "BookGreen")
+            }
+        
+    }
+    
     @Environment(\.managedObjectContext) var managedObjectContext
     
     var body: some View {
@@ -52,10 +67,18 @@ struct BookCreationView: View {
                         Text("Add")
                             .foregroundColor(.gray)
                     } else {
-                        Button("Add", action: {
-                            PersistenceController.shared.createBook(color: chosenColor, title: title, author: author)
-                            isCreateBookModalOpen = false
-                        })
+                        if let bookToUpdate = bookToUpdate {
+                            Button("Update", action: {
+                                PersistenceController.shared.updateBook(bookToUpdate, chosenColor, title, author)
+                                isCreateBookModalOpen = false
+                            })
+                        } else {
+                            Button("Add", action: {
+                                PersistenceController.shared.createBook(chosenColor, title, author)
+                                isCreateBookModalOpen = false
+                            })
+                        }
+                        
                     }
                 })
                 

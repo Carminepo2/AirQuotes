@@ -94,7 +94,7 @@ final class PersistenceController {
     
     // MARK: - Books Data Functions
     
-    func createBook(color: String, title: String, author: String) {
+    func createBook(_ color: String, _ title: String, _ author: String) {
         let newBook = Book(context: viewContext)
         newBook.color = color
         newBook.id = UUID()
@@ -116,6 +116,16 @@ final class PersistenceController {
         } catch {
             return nil
         }
+    }
+    
+    func updateBook(_ bookToUpdate: Book, _ color: String, _ title: String, _ author: String) {
+        bookToUpdate.setValuesForKeys([
+            "color": color,
+            "title": title,
+            "author": author,
+            "updatedAt": Date()
+        ])
+        save()
     }
 
     
