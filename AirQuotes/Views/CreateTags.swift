@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CreateTags: View {
-    @State var chosenColor: String = "BookGreen"
     @Binding var showCreateTags: Bool
-    @State private var tag = ""
+    @State private var tagName = ""
+    @State private var chosenColor = "BookRed"
     @State var tagList: [Tag] = []
     
     
@@ -25,7 +25,7 @@ struct CreateTags: View {
                 VStack{
                     Form{
                         Section(header: Text("Tag")) {
-                            TextField("Eg: happy, motivational...", text: $tag)
+                            TextField("Eg: happy, motivational...", text: $tagName)
                         }
                         Section(header: Text("Color")) {
                             HStack{
@@ -43,15 +43,20 @@ struct CreateTags: View {
             .navigationTitle("New tag")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    if tag.isEmpty {
+                    if tagName.isEmpty {
                         Text("Save tag")
                             .foregroundColor(.gray)
                     } else {
                         Button("Save tag", action: {
+
                             showCreateTags.toggle()
-                            let newTag = PersistenceController.shared.createTag(chosenColor, tag)
+                            let newTag = PersistenceController.shared.createTag(chosenColor, tagName)
                             tagList.append(newTag)
+                            tagName = ""
+                            
                         })
+                            
+                        
                     }
                 }
                 

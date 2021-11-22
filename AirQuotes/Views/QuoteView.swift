@@ -14,6 +14,7 @@ struct QuoteView: View {
     @State var favourite: Bool = false
     @State private var showActionSheet = false
     @State var showModal : Bool = false
+
     
     var body: some View {
         ScrollView{

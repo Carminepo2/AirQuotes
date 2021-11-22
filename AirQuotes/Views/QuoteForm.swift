@@ -17,6 +17,10 @@ struct QuoteForm: View {
     @Binding var showModal: Bool
     @State private var showCreateTags = false
     @State private var selectedTag: Tag = Tag()
+    @State private var selectedBook: Book = Book()
+    @State var tagName: String = "Prova"
+    @State var chosenColor: String = "BookRed"
+
     
     @State var showTagList: Bool = false
     
@@ -26,6 +30,13 @@ struct QuoteForm: View {
             NSSortDescriptor(keyPath: \Tag.name, ascending: false)
         ]
     ) var tags: FetchedResults<Tag>
+    
+    @FetchRequest(
+        entity: Book.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Book.title, ascending: false)
+        ]
+    ) var books: FetchedResults<Book>
     
     
     
@@ -66,7 +77,7 @@ struct QuoteForm: View {
                         }
                         Section(header: Text("Tags")) {
                             
-                            HStack{
+                            
                                 Button("Create a new tag") {
                                     showCreateTags.toggle()
                                 }
@@ -75,20 +86,36 @@ struct QuoteForm: View {
                                 .sheet(isPresented: $showCreateTags, content: {
                                     CreateTags(showCreateTags: $showCreateTags)
                                 })
-                                
-                            }
-                            HStack {
-                                Section {
-                                    Picker("Choose from existent ones", selection: $selectedTag) {
+                                                                
+                                Picker("Choose from existent ones", selection: $selectedTag) {
                                         ForEach(tags) {
                                             Text($0.name ?? "Unknown")
                                         }
                                     }
                                     .foregroundColor(.primary)
                                     .opacity(0.5)
-                                }
-                                
+                            
+                            HStack{
+                                TagView(color: Color(chosenColor), title: tagName)
                             }
+                            .padding(.vertical)
+                            .padding(.horizontal, -72.5)
+                            
+                            
+                                
+                                
+                            
+                        }
+                        
+                        Section(header: Text("Book"))
+                        {
+                            Picker("Save your quote in a book", selection: $selectedBook) {
+                                ForEach(books) {
+                                    Text($0.title ?? "Unknown")
+                                }
+                            }
+                            .foregroundColor(.primary)
+                            .opacity(0.5)
                         }
                     }
                 }
