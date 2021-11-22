@@ -43,6 +43,12 @@ struct CreateTags: View {
                                 ColorButtonPicker(colorName: "BookLightBlue", chosenColor: $chosenColor)
                             }
                             .padding(.horizontal)
+                            .padding(.horizontal)
+                        }
+                        Section(header: Text("Preview"))
+                        {
+                    
+//                            TagView(color: Color(chosenColor), title: tag, <#T##id: NSManagedObjectID?##NSManagedObjectID?#>)
                         }
 
                     }

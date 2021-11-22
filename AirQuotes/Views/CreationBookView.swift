@@ -57,6 +57,8 @@ struct BookCreationView: View {
                                 ColorButtonPicker(colorName: "BookLightBlue", chosenColor: $chosenColor)
                             }
                             .padding(.horizontal)
+                            .padding(.horizontal)
+
                         }
                     }
                 }
