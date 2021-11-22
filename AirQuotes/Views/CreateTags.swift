@@ -12,7 +12,7 @@ struct CreateTags: View {
     @Binding var showCreateTags: Bool
     @State private var tag = ""
     @State var tagList: [Tag] = []
-
+    
     
     var body: some View {
         
@@ -21,12 +21,10 @@ struct CreateTags: View {
             ZStack {
                 Color.themeColor
                     .ignoresSafeArea()
-                
-
+            
                 VStack{
                     Form{
-                        Section(header: Text("Tag"))
-                        {
+                        Section(header: Text("Tag")) {
                             TextField("Eg: happy, motivational...", text: $tag)
                         }
                         Section(header: Text("Color")) {
@@ -39,62 +37,22 @@ struct CreateTags: View {
                             .padding(.horizontal)
                             .padding(.horizontal)
                         }
-                        Section(header: Text("Preview"))
-                        {
-                            ScrollView(.horizontal){
-                                LazyHGrid(rows: Array(repeating: GridItem(.flexible()), count: 3)){
-                                    ForEach(tagList) {
-                                        tag in
-                                        TagView(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown")
-                                    }
-                                    .padding(.vertical)
-                                    .padding(.vertical)
-                                    .padding(.vertical)
-                                    
-                                }
-                            }
-
-      
-                            
-
-
-                        }
-
                     }
                 }
             }
-            .navigationTitle("Create new tags")
+            .navigationTitle("New tag")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     if tag.isEmpty {
-                        Text("Save tags")
+                        Text("Save tag")
                             .foregroundColor(.gray)
                     } else {
-                        Button("Save tags", action: {
+                        Button("Save tag", action: {
                             showCreateTags.toggle()
-                            
-                        })
-                    }
-                }
-                ToolbarItemGroup(placement: .bottomBar)
-                {
-                    Spacer()
-                    
-                    if tag.isEmpty {
-                        Text("Add tag")
-                            .foregroundColor(.gray)
-                    } else {
-                        Button("Add tag", action: {
-                            // add saveTags function
                             let newTag = PersistenceController.shared.createTag(chosenColor, tag)
                             tagList.append(newTag)
-                            tag = ""
-                            
                         })
                     }
-
- 
-                
                 }
                 
                 ToolbarItem(placement: .keyboard)
@@ -105,17 +63,17 @@ struct CreateTags: View {
                         Image(systemName: "keyboard.chevron.compact.down")
                     }
                 }
-
-
-            
+                
+                
+                
                 
             }
         }
-
         
         
         
-
+        
+        
     }
 }
 

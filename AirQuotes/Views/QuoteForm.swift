@@ -16,8 +16,16 @@ struct QuoteForm: View {
     @State private var by = ""
     @Binding var showModal: Bool
     @State private var showCreateTags = false
-
-
+    @State private var selectedTag: Tag = Tag()
+    
+    @State var showTagList: Bool = false
+    
+    @FetchRequest(
+        entity: Tag.entity(),
+        sortDescriptors: [
+            NSSortDescriptor(keyPath: \Tag.name, ascending: false)
+        ]
+    ) var tags: FetchedResults<Tag>
     
     
     
@@ -61,52 +69,31 @@ struct QuoteForm: View {
                             HStack{
                                 Button("Create a new tag") {
                                     showCreateTags.toggle()
-                                 }
+                                }
                                 .foregroundColor(.primary)
                                 .opacity(0.5)
                                 .sheet(isPresented: $showCreateTags, content: {
                                     CreateTags(showCreateTags: $showCreateTags)
                                 })
-                                Spacer()
-                                
-                                Image(systemName: "plus.circle")
-                                    .foregroundColor(.primary)
-                                    .opacity(0.5)
                                 
                             }
-                            
-                            HStack{
-                                Button("Choose from existent ones") {
-        //                            isCreateBookModalOpen.toggle()
-                                 }
-                                .foregroundColor(.primary)
-                                .opacity(0.5)
-        //                        .sheet(isPresented: $isCreateBookModalOpen, content: {
-        //                            BookCreationView(isCreateBookModalOpen: $isCreateBookModalOpen)
-        //                        })
-                                Spacer()
-                                
-                                Image(systemName: "arrowtriangle.down.circle")
+                            HStack {
+                                Section {
+                                    Picker("Choose from existent ones", selection: $selectedTag) {
+                                        ForEach(tags) {
+                                            Text($0.name ?? "Unknown")
+                                        }
+                                    }
                                     .foregroundColor(.primary)
                                     .opacity(0.5)
+                                }
                                 
                             }
-                            
-                            
-
                         }
-                        
-                        
                     }
-
-
-                    
-
-                    
-                    
                 }
                 .navigationTitle("Add a new quote")
-
+                
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         

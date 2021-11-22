@@ -27,6 +27,8 @@ struct TagView: View {
             .padding(.horizontal, 15)
             .padding(.vertical, 5)
             .background(RoundedRectangle(cornerRadius: 20).fill(color))
+            .lineLimit(1)
+            .frame(maxWidth: 220)
     }
     
     struct TagView_Previews: PreviewProvider {

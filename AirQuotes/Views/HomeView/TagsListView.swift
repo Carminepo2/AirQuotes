@@ -20,6 +20,7 @@ struct TagsListView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            
             ForEach(tags) { tag in
                 
                 HStack {

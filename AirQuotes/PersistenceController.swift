@@ -152,13 +152,8 @@ final class PersistenceController {
         newTag.color = color
         newTag.name = name
         save()
-        
-        print(newTag)
-        
+                
         return newTag
     }
-
-    
-
 }
 
