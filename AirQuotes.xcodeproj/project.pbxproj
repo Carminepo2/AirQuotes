@@ -141,6 +141,7 @@
 				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				9CBB98D22747E55600E27B94 /* TagView.swift */,
 				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
+				B9540B76274B969C00651516 /* CreateTags.swift */,
 				DEEB00A12747E7E7002D2039 /* BookshelfView.swift */,
 				DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */,
 				DEEB00A42747F9A5002D2039 /* QuoteInList.swift */,
@@ -155,7 +156,6 @@
 				75BF6053274458290099A9C8 /* TagsListView */,
 				75C5096F27429FDF00F8CA2E /* QuotesView.swift */,
 				75C509722742A31A00F8CA2E /* QuotesViewModel.swift */,
-				B9540B76274B969C00651516 /* CreateTags.swift */,
 			);
 			path = QuotesView;
 			sourceTree = "<group>";
