@@ -82,15 +82,6 @@ struct QuoteView: View {
         .toolbar{
 
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button{
-                
-                }label:{
-                    
-                Image(systemName: "ellipsis")
-                    .onTapGesture {
-                        showActionSheet = true
-                    }
-                }
                 
                 Button{
                     
@@ -114,16 +105,14 @@ struct QuoteView: View {
                             }
                     }
                 }
-            }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
-                    
+                
                 }label:{
                     
-                    Image(systemName: "ellipsis")
-                        .onTapGesture {
-                            showActionSheet = true
-                        }
+                Image(systemName: "ellipsis")
+                    .onTapGesture {
+                        showActionSheet = true
+                    }
                 }
             }
         }
