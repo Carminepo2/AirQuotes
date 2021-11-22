@@ -28,6 +28,7 @@
 		9CBB98D32747E55600E27B94 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB98D22747E55600E27B94 /* TagView.swift */; };
 		B94A0FA2274646C0000FF9C8 /* ScanTextField in Frameworks */ = {isa = PBXBuildFile; productRef = B94A0FA1274646C0000FF9C8 /* ScanTextField */; };
 		B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94A0FA827464980000FF9C8 /* QuoteForm.swift */; };
+		B9540B77274B969C00651516 /* CreateTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9540B76274B969C00651516 /* CreateTags.swift */; };
 		B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */; };
 		B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C112746B0EE00A825CA /* ScanButton.swift */; };
 		DEEB00A22747E7E7002D2039 /* ListQuotesBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */; };
@@ -58,6 +59,7 @@
 		9CBB98D02746B06D00E27B94 /* BookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		9CBB98D22747E55600E27B94 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		B94A0FA827464980000FF9C8 /* QuoteForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuoteForm.swift; path = AirQuotes/Views/QuoteForm.swift; sourceTree = SOURCE_ROOT; };
+		B9540B76274B969C00651516 /* CreateTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTags.swift; sourceTree = "<group>"; };
 		B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
 		B9A03C112746B0EE00A825CA /* ScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
 		DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListQuotesBook.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				75BF6053274458290099A9C8 /* TagsListView */,
 				75C5096F27429FDF00F8CA2E /* QuotesView.swift */,
 				75C509722742A31A00F8CA2E /* QuotesViewModel.swift */,
+				B9540B76274B969C00651516 /* CreateTags.swift */,
 			);
 			path = QuotesView;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				75C4CA192744417E00DEA1BB /* PersistenceController.swift in Sources */,
 				75F8A8D02748075600EBF06E /* HomeView.swift in Sources */,
 				DEEB00A32747E7E7002D2039 /* BookshelfView.swift in Sources */,
+				B9540B77274B969C00651516 /* CreateTags.swift in Sources */,
 				75C509782742AF8200F8CA2E /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,7 +423,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = 37THZ8H7Q6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirQuotes/Info.plist;
@@ -434,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it.carmineporricelli.AirQuotes;
+				PRODUCT_BUNDLE_IDENTIFIER = it.valeriooconte.AirQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -450,7 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AirQuotes/Preview Content\"";
-				DEVELOPMENT_TEAM = W63RPFLVSJ;
+				DEVELOPMENT_TEAM = 37THZ8H7Q6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirQuotes/Info.plist;
@@ -465,7 +469,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = it.carmineporricelli.AirQuotes;
+				PRODUCT_BUNDLE_IDENTIFIER = it.valeriooconte.AirQuotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
