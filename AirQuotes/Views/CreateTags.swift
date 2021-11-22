@@ -41,7 +41,22 @@ struct CreateTags: View {
                         }
                         Section(header: Text("Preview"))
                         {
-                
+                            ScrollView(.horizontal){
+                                LazyHGrid(rows: Array(repeating: GridItem(.flexible()), count: 3)){
+                                    ForEach(tagList) {
+                                        tag in
+                                        TagView(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown")
+                                    }
+                                    .padding(.vertical)
+                                    .padding(.vertical)
+                                    .padding(.vertical)
+                                    
+                                }
+                            }
+
+      
+                            
+
 
                         }
 
@@ -72,7 +87,8 @@ struct CreateTags: View {
                         Button("Add tag", action: {
                             // add saveTags function
                             let newTag = PersistenceController.shared.createTag(chosenColor, tag)
-                            tagList.append(newTag) 
+                            tagList.append(newTag)
+                            tag = ""
                             
                         })
                     }

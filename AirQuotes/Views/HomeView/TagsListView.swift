@@ -26,7 +26,8 @@ struct TagsListView: View {
                     TagView(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown", tag.objectID)
                     
                     Spacer()
-                }.padding(.horizontal)
+                }
+                .padding(.horizontal)
             }
         }
     }
