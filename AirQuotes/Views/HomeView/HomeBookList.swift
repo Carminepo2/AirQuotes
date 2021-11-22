@@ -18,26 +18,58 @@ struct HomeBookList: View {
     
     
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack(spacing: 25) {
-                ForEach(books) { book in
-                    NavigationLink {
-                        ListQuotesBook()
-                    } label: {
-                        BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+        
+        if !books.isEmpty {
+            TabView {
+                
+                ForEach(Array(books).chunked(into: 2), id: \.first) { bookPair in
+                    HStack {
+                        NavigationLink {
+                            ListQuotesBook()
+                        } label: {
+                            BookView(bookPair[0], color: Color(bookPair[0].color ?? "Background"), text: bookPair[0].title ?? "Unknown")
+                        }
+                        Spacer()
+                        if bookPair.indices.contains(1) {
+                            NavigationLink {
+                                ListQuotesBook()
+                            } label: {
+                                BookView(bookPair[1], color: Color(bookPair[1].color ?? "Background"), text: bookPair[1].title ?? "Unknown")
+                            }
+                        }
+                        
                     }
-
+                    .frame(height: 240)
+                    .offset(y: -20)
+                    .padding(.horizontal)
                 }
-            }.padding(35)
+            }
+            .frame(height: 310)
+            .tabViewStyle(.page)
+            
+            
+        } else {
+            Group {
+                Text("No books.")
+                    .foregroundColor(.secondary)
+            }
+            .frame(height: 200)
+            .padding(.top, -20)
+            
         }
-        .padding(-35)
-        .padding()
-        .frame(height: 240, alignment: .trailing)
+        
     }
 }
 
 struct HomeBookList_Previews: PreviewProvider {
     static var previews: some View {
         HomeBookList()
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] where Element: Identifiable {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)]) }
     }
 }

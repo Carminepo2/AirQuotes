@@ -14,6 +14,11 @@ struct QuoteSliderView: View {
     
     private let emptyState = "Write your first quote!"
     
+    init() {
+       UIPageControl.appearance().currentPageIndicatorTintColor = .black
+       UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.1)
+       }
+    
     var body: some View {
 
         TabView {
@@ -22,7 +27,6 @@ struct QuoteSliderView: View {
             }
         }
         .tabViewStyle(.page)
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
 
     }
 }
