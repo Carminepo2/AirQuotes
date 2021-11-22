@@ -22,7 +22,7 @@ struct TagView: View {
     }
     
     var body: some View {
-        ZStack{
+        ZStack {
         
             Text(title)
                 .font(.largeTitle)

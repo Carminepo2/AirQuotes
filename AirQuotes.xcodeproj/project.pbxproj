@@ -84,7 +84,6 @@
 		75BF6053274458290099A9C8 /* TagsListView */ = {
 			isa = PBXGroup;
 			children = (
-				75BF6054274458360099A9C8 /* TagsListView.swift */,
 			);
 			path = TagsListView;
 			sourceTree = "<group>";
@@ -183,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				75F8A8D12748084900EBF06E /* HomeBookList.swift */,
+				75BF6054274458360099A9C8 /* TagsListView.swift */,
 				75F8A8CF2748075600EBF06E /* HomeView.swift */,
 				75C87157274A60D800ED5317 /* QuoteSliderView.swift */,
 			);

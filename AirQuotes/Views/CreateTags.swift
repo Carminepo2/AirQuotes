@@ -11,6 +11,8 @@ struct CreateTags: View {
     @State var chosenColor: String = "BookGreen"
     @Binding var showCreateTags: Bool
     @State private var tag = ""
+    @State private var tagList: [Tag] = []
+    
     var body: some View {
         
         NavigationView {
@@ -61,7 +63,7 @@ struct CreateTags: View {
                     } else {
                         Button("Save tags", action: {
                             showCreateTags.toggle()
-                            // add saveTags function
+                            
                         })
                     }
                 }
@@ -75,6 +77,9 @@ struct CreateTags: View {
                     } else {
                         Button("Add tag", action: {
                             // add saveTags function
+                            let newTag = PersistenceController.shared.createTag(chosenColor, tag)
+                            tagList.append(newTag) 
+                            
                         })
                     }
 

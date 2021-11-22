@@ -127,6 +127,20 @@ final class PersistenceController {
         ])
         save()
     }
+    
+    // MARK: - Tags Data Functions
+    
+    func createTag(_ color: String, _ name: String) -> Tag {
+        let newTag = Tag(context: viewContext)
+        newTag.id = UUID()
+        newTag.color = color
+        newTag.name = name
+        save()
+        
+        print(newTag)
+        
+        return newTag
+    }
 
     
 

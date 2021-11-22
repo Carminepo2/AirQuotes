@@ -16,7 +16,7 @@ struct QuotesView: View {
         ZStack {
             Color.themeColor
                 .ignoresSafeArea()
-            
+
             ScrollView {
                 
                 VStack {
@@ -35,6 +35,7 @@ struct QuotesView: View {
                     switch(quotesViewModel.actualViewType) {
                     case .tags:
                         TagsListView()
+
                     case .bookshelf:
                         BookshelfView()
                     default:
@@ -46,7 +47,7 @@ struct QuotesView: View {
                 }
             }
             
-        }
+            }
         
     }
 }
