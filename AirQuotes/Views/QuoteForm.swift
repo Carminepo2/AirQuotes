@@ -15,6 +15,9 @@ struct QuoteForm: View {
     @State private var quote = ""
     @State private var by = ""
     @Binding var showModal: Bool
+    @State private var showCreateTags = false
+    
+    
     
     private let gridKeyBoardButtonsLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
@@ -26,34 +29,85 @@ struct QuoteForm: View {
                 Color.themeColor
                     .ignoresSafeArea()
                 
-                
-                Form {
-                    Section(header: Text("New quote")) {
-                        
-                        ZStack(alignment: .leading){
-                            if quote.isEmpty {
-                                Text("Quote")
-                                    .foregroundColor(.secondary)
+                VStack{
+                    
+                    Form {
+                        Section(header: Text("Quote & Author")) {
+                            
+                            ZStack(alignment: .leading){
+                                if quote.isEmpty {
+                                    Text("Quote")
+                                        .foregroundColor(.secondary)
+                                        .opacity(0.5)
+                                    
+                                }
+                                TextEditor(text: $quote)
+                            }
+                            
+                            ZStack(alignment: .leading){
+                                if by.isEmpty {
+                                    Text("By")
+                                        .foregroundColor(.secondary)
+                                        .opacity(0.5)
+                                }
+                                TextEditor(text: $by)
+                            }
+                        }
+                        Section(header: Text("Tags")) {
+                            
+                            HStack{
+                                Button("Create a new tag") {
+                                    showCreateTags.toggle()
+                                 }
+                                .foregroundColor(.primary)
+                                .opacity(0.5)
+                                .sheet(isPresented: $showCreateTags, content: {
+                                    CreateTags(showCreateTags: $showCreateTags)
+                                })
+                                Spacer()
+                                
+                                Image(systemName: "plus.circle")
+                                    .foregroundColor(.primary)
                                     .opacity(0.5)
                                 
                             }
-                            TextEditor(text: $quote)
+                            
+                            HStack{
+                                Button("Choose from existent ones") {
+        //                            isCreateBookModalOpen.toggle()
+                                 }
+                                .foregroundColor(.primary)
+                                .opacity(0.5)
+        //                        .sheet(isPresented: $isCreateBookModalOpen, content: {
+        //                            BookCreationView(isCreateBookModalOpen: $isCreateBookModalOpen)
+        //                        })
+                                Spacer()
+                                
+                                Image(systemName: "arrowtriangle.down.circle")
+                                    .foregroundColor(.primary)
+                                    .opacity(0.5)
+                                
+                            }
+                            
+                            
+
                         }
                         
-                        ZStack(alignment: .leading){
-                            if by.isEmpty {
-                                Text("By")
-                                    .foregroundColor(.secondary)
-                                    .opacity(0.5)
-                            }
-                            TextEditor(text: $by)
-                        }
+                        
                     }
+
+
+                    
+
+                    
+                    
                 }
+                .navigationTitle("Add a new quote")
+
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         
-                        if quote.isEmpty{
+                        if quote.isEmpty || by.isEmpty {
                             Text("Save")
                                 .foregroundColor(.gray)
                         } else {

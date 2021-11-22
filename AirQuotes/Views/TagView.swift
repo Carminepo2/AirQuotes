@@ -70,6 +70,6 @@ struct TagView: View {
 
 struct TagView_Previews: PreviewProvider {
     static var previews: some View {
-        TagView(color: Color.green, title: "Funnjeuhgchyvuuhepuvuvgg", NSManagedObjectID())
+        TagView(color: Color.green, title: "Example", NSManagedObjectID())
     }
 }
