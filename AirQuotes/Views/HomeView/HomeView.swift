@@ -22,7 +22,7 @@ struct HomeView: View {
                 VStack{
                     
                     HStack {
-                        Text("Latest quote")
+                        Text("Latest quotes")
                             .font(.title2)
                             .fontWeight(.semibold)
                             .foregroundColor(Color.black)

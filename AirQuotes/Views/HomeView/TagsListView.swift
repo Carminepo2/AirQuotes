@@ -19,12 +19,15 @@ struct TagsListView: View {
     
     
     var body: some View {
-        VStack{
+        VStack(alignment: .leading) {
             ForEach(tags) { tag in
                 
-                TagView(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown", tag.objectID)
+                HStack {
+                    TagView(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown", tag.objectID)
+                    
+                    Spacer()
+                }.padding(.horizontal)
             }
-            .listRowBackground(Color.clear)
         }
     }
 }
