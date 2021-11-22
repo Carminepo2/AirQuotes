@@ -16,6 +16,9 @@ struct QuoteForm: View {
     @State private var by = ""
     @Binding var showModal: Bool
     @State private var showCreateTags = false
+
+
+    
     
     
     
@@ -117,6 +120,7 @@ struct QuoteForm: View {
                             })
                         }
                     }
+                    
                     ToolbarItemGroup(placement: .keyboard) {
                         LazyVGrid(columns: gridKeyBoardButtonsLayout, content: {
                             Spacer()
@@ -132,6 +136,8 @@ struct QuoteForm: View {
                             }
                         })
                     }
+                    
+                    
                 }
             }
         }
