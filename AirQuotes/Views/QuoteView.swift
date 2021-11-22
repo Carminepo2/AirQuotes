@@ -13,6 +13,7 @@ struct QuoteView: View {
     let author: String
     @State var favourite: Bool = false
     @State private var showActionSheet = false
+    @State var showModal : Bool = false
     
     var body: some View {
         ScrollView{
@@ -61,7 +62,7 @@ struct QuoteView: View {
                 HStack{
                     
                     TagView(color: Color.green, title: "Funny")
-                        //.padding(.horizontal, 7)
+                    //.padding(.horizontal, 7)
                     
                     Button {
                         
@@ -81,7 +82,7 @@ struct QuoteView: View {
         .toolbar{
             ToolbarItemGroup() {
                 Button{
-                
+                    
                 }label:{
                     
                     if favourite{
@@ -105,27 +106,30 @@ struct QuoteView: View {
             }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button{
-                
+                    
                 }label:{
                     
-                Image(systemName: "ellipsis")
-                    .onTapGesture {
-                        showActionSheet = true
-                    }
+                    Image(systemName: "ellipsis")
+                        .onTapGesture {
+                            showActionSheet = true
+                        }
                 }
             }
         }
         .actionSheet(isPresented: $showActionSheet, content: {
-                    ActionSheet(title: Text("Choose"), buttons: [
-                        .default(Text("Edit")) {
-                            
-                        },
-                        .default(Text("Delete")) {
-                            
-                        },
-                        .cancel()
-                        ])
+            ActionSheet(title: Text("Choose"), buttons: [
+                .default(Text("Edit")) {
+                    showModal.toggle()
+                },
+                .destructive(Text("Delete")) {
+                    
+                },
+                .cancel()
+            ])
         })
+        .sheet(isPresented: $showModal) {
+            QuoteForm(showModal: $showModal)
+        }
     }
 }
 
