@@ -131,6 +131,22 @@ final class PersistenceController {
     // MARK: - Tags Data Functions
     
     func createTag(_ color: String, _ name: String) -> Tag {
+        
+        let fetchRequest = Tag.fetchRequest()
+
+        fetchRequest.predicate = NSPredicate(
+            format: "name = %@", name
+        )
+
+        if let tags = try? viewContext.fetch(fetchRequest) {
+            if !tags.isEmpty {
+                let existingTag = tags[0]
+                existingTag.setValue(color, forKey: "color")
+                save()
+                return existingTag
+            }
+        }
+
         let newTag = Tag(context: viewContext)
         newTag.id = UUID()
         newTag.color = color
