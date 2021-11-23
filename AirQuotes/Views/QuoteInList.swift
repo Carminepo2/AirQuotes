@@ -8,17 +8,31 @@
 import SwiftUI
 
 struct QuoteInList: View {
+    
+    let quote: Quote
+    
+    private let quoteText: String
+    private let quoteAuthor: String
+    private let time: String
+    
+    init(quote: Quote) {
+        self.quote = quote
+        quoteText = "“\(quote.text ?? "Unknown")”"
+        quoteAuthor = quote.author ?? ""
+        time = "One hour ago"
+    }
+    
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text("“It is impossible to manufacture or imitate love”")
+            Text(quoteText)
                 .lineLimit(2)
             HStack {
                 Text("Horace Slughorn")
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
                 Spacer()
-                Text("One hour ago")
+                Text(time)
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
             } .offset(y: 15)
@@ -31,6 +45,6 @@ struct QuoteInList: View {
 
 struct QuoteInList_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteInList()
+        QuoteInList(quote: Quote())
     }
 }

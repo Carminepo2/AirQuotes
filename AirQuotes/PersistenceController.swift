@@ -51,6 +51,17 @@ final class PersistenceController {
     
     // MARK: - Quotes Data Functions
     
+    func createQuote(_ text: String, _ by: String, _ book: Book, _ tags: [Tag]) {
+        let newQuote = Quote(context: viewContext)
+        newQuote.id = UUID()
+        newQuote.text = text
+        newQuote.author = by
+        newQuote.book = book
+        newQuote.tags = NSSet(array: tags)
+        newQuote.createdAt = Date()
+        save()
+    }
+    
     func getQuoteById(id: NSManagedObjectID) -> Quote? {
         do {
             return try viewContext.existingObject(with: id) as? Quote
@@ -93,6 +104,15 @@ final class PersistenceController {
     }
     
     // MARK: - Books Data Functions
+    
+    func getBooksQuotes(_ book: Book) -> [Quote]? {
+        let fetchRequest = Quote.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "ANY book == %@", book)
+        if let quotes = try? viewContext.fetch(fetchRequest) {
+            return quotes
+        }
+        return nil
+    }
     
     func createBook(_ color: String, _ title: String, _ author: String) {
         let newBook = Book(context: viewContext)

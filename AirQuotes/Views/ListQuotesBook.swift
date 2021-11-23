@@ -9,16 +9,25 @@ import SwiftUI
 
 struct ListQuotesBook: View {
     
+
+    let book: Book
+    @State private var quotes: [Quote] = []
     
+    init(book: Book) {
+        self.book = book
+        if let quotes = PersistenceController.shared.getBooksQuotes(book) {
+            _quotes = State(wrappedValue: quotes)
+        }
+    }
     
     var body: some View {
         
         Group {
             List {
-                ForEach(0..<10) {
-                    _ in
-                    NavigationLink(destination: QuoteView(quote: "It is impossible to manufacture or imitate love", author: "Horace Slughorn")) {
-                        QuoteInList()
+                ForEach(quotes) {
+                    quote in
+                    NavigationLink(destination: QuoteView(quote: quote.text ?? "Unknown", author: quote.author ?? "Unknown")) {
+                        QuoteInList(quote: quote)
                     }
                 }
                 
@@ -38,8 +47,8 @@ struct ListQuotesBook: View {
     
 }
 
-struct ListQuotesBook_Previews: PreviewProvider {
-    static var previews: some View {
-        ListQuotesBook()
-    }
-}
+//struct ListQuotesBook_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListQuotesBook(quotes: FetchedResults<Quote>())
+//    }
+//}

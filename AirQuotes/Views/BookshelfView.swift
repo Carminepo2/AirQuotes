@@ -31,7 +31,7 @@ struct BookshelfView: View {
         LazyVGrid(columns: columns, spacing: 24) {
             ForEach(books) { book in
                 NavigationLink {
-                    ListQuotesBook()
+                    ListQuotesBook(book: book)
                 } label: {
                     BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
                     

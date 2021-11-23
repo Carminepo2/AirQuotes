@@ -9,24 +9,28 @@ import SwiftUI
 
 struct CreateTags: View {
     @Binding var showCreateTags: Bool
+    @Binding var chosenTagList: Array<Tag>
     @State private var tagName = ""
     @State private var chosenColor = "BookRed"
-    @State var tagList: [Tag] = []
+    @State private var showDuplicateTagAlert = false
+    
     
     
     var body: some View {
-        
         NavigationView {
             
             ZStack {
+                
                 Color.themeColor
                     .ignoresSafeArea()
             
                 VStack{
-                    Form{
+                    
+                    Form {
                         Section(header: Text("Tag")) {
                             TextField("Eg: happy, motivational...", text: $tagName)
                         }
+                        
                         Section(header: Text("Color")) {
                             HStack{
                                 ColorButtonPicker(colorName: "BookRed", chosenColor: $chosenColor)
@@ -48,11 +52,19 @@ struct CreateTags: View {
                             .foregroundColor(.gray)
                     } else {
                         Button("Save tag", action: {
-
-                            showCreateTags.toggle()
                             let newTag = PersistenceController.shared.createTag(chosenColor, tagName)
-                            tagList.append(newTag)
-                            tagName = ""
+                            
+                            print(chosenTagList)
+                            
+                            let doesAlreadyContainTag = chosenTagList.contains { $0.name == tagName }
+                            
+                            if (!doesAlreadyContainTag) {
+                                chosenTagList.append(newTag)
+                                tagName = ""
+                                showCreateTags.toggle()
+                            } else {
+                                showDuplicateTagAlert.toggle()
+                            }
                             
                         })
                             
@@ -60,18 +72,16 @@ struct CreateTags: View {
                     }
                 }
                 
-                ToolbarItem(placement: .keyboard)
-                {
+                ToolbarItem(placement: .keyboard) {
                     Button {
                         hideKeyboard()
                     } label: {
                         Image(systemName: "keyboard.chevron.compact.down")
                     }
                 }
-                
-                
-                
-                
+            }
+            .alert("This tag already exists.", isPresented: $showDuplicateTagAlert) {
+                        Button("OK", role: .cancel) { }
             }
         }
         
@@ -84,7 +94,7 @@ struct CreateTags: View {
 
 struct CreateTags_Previews: PreviewProvider {
     static var previews: some View {
-        CreateTags(showCreateTags: .constant(true))
+        CreateTags(showCreateTags: .constant(true), chosenTagList: .constant([]))
     }
 }
 
