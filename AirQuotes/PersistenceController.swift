@@ -51,6 +51,17 @@ final class PersistenceController {
     
     // MARK: - Quotes Data Functions
     
+    func createQuote(_ text: String, _ by: String, _ book: Book, _ tags: [Tag]) {
+        let newQuote = Quote(context: viewContext)
+        newQuote.id = UUID()
+        newQuote.text = text
+        newQuote.author = by
+        newQuote.book = book
+        newQuote.tags = NSSet(array: tags)
+        newQuote.createdAt = Date()
+        save()
+    }
+    
     func getQuoteById(id: NSManagedObjectID) -> Quote? {
         do {
             return try viewContext.existingObject(with: id) as? Quote

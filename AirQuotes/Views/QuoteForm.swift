@@ -17,10 +17,11 @@ struct QuoteForm: View {
     @Binding var showModal: Bool
     @State private var showCreateTags = false
     @State private var selectedTag: Tag = Tag()
-    @State private var selectedBook: Book = Book()
+    @State private var selectedBook: Book? = nil
     @State var tagName: String = "Prova"
     @State var chosenColor: String = "BookRed"
-
+    @State var chosenTagList: [Tag] = []
+    
     
     @State var showTagList: Bool = false
     
@@ -54,13 +55,12 @@ struct QuoteForm: View {
                 VStack{
                     
                     Form {
-                        Section(header: Text("Quote & Author")) {
+                        Section(header: Text("Quote & Character")) {
                             
                             ZStack(alignment: .leading){
                                 if quote.isEmpty {
                                     Text("Quote")
                                         .foregroundColor(.secondary)
-                                        .opacity(0.5)
                                     
                                 }
                                 TextEditor(text: $quote)
@@ -68,9 +68,8 @@ struct QuoteForm: View {
                             
                             ZStack(alignment: .leading){
                                 if by.isEmpty {
-                                    Text("By")
+                                    Text("Character")
                                         .foregroundColor(.secondary)
-                                        .opacity(0.5)
                                 }
                                 TextEditor(text: $by)
                             }
@@ -78,44 +77,56 @@ struct QuoteForm: View {
                         Section(header: Text("Tags")) {
                             
                             
-                                Button("Create a new tag") {
-                                    showCreateTags.toggle()
-                                }
-                                .foregroundColor(.primary)
-                                .opacity(0.5)
-                                .sheet(isPresented: $showCreateTags, content: {
-                                    CreateTags(showCreateTags: $showCreateTags)
-                                })
-                                                                
-                                Picker("Choose from existent ones", selection: $selectedTag) {
-                                        ForEach(tags) {
-                                            Text($0.name ?? "Unknown")
+                            Button("Create a new tag") {
+                                showCreateTags.toggle()
+                            }
+                            .foregroundColor(.primary)
+                            .sheet(isPresented: $showCreateTags, content: {
+                                CreateTags(showCreateTags: $showCreateTags, chosenTagList: $chosenTagList)
+                            })
+                            
+                            
+                            NavigationLink {
+                                List {
+                                    ForEach(tags) { tag in
+                                        MultipleSelectionRow(title: tag.name ?? "Unknown", isSelected: chosenTagList.contains { $0.name == tag.name }) {
+                                            if chosenTagList.contains(where: { $0.name == tag.name }) {
+                                                chosenTagList.removeAll(where: { $0.name == tag.name })
+                                            }
+                                            else {
+                                                chosenTagList.append(tag)
+                                            }
                                         }
                                     }
-                                    .foregroundColor(.primary)
-                                    .opacity(0.5)
-                            
-                            HStack{
-                                TagView(color: Color(chosenColor), title: tagName)
+                                }
+                                .listStyle(InsetListStyle())
+                            } label: {
+                                Text("Choose tag")
                             }
-                            .padding(.vertical)
-                            .padding(.horizontal, -72.5)
+                            .foregroundColor(.primary)
                             
-                            
-                                
-                                
+                            if chosenTagList.count > 0 {
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: 10) {
+                                        ForEach(chosenTagList) {
+                                            TagView(color: Color($0.color ?? ""), title: $0.name ?? "Unknown")
+                                            
+                                        }
+                                    }
+                                    .padding(.vertical)
+                                }
+                            }
                             
                         }
                         
                         Section(header: Text("Book"))
                         {
-                            Picker("Save your quote in a book", selection: $selectedBook) {
+                            Picker("Choose book", selection: $selectedBook) {
                                 ForEach(books) {
-                                    Text($0.title ?? "Unknown")
+                                    Text($0.title ?? "Unknown").tag($0 as Book?)
                                 }
                             }
                             .foregroundColor(.primary)
-                            .opacity(0.5)
                         }
                     }
                 }
@@ -124,14 +135,15 @@ struct QuoteForm: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         
-                        if quote.isEmpty || by.isEmpty {
+                        if !quote.isEmpty && selectedBook != nil && !by.isEmpty {
+                            Button("Save", action: {
+                                PersistenceController.shared.createQuote(quote, by, selectedBook!, chosenTagList)
+                                showModal.toggle()
+                            })
+                            
+                        } else {
                             Text("Save")
                                 .foregroundColor(.gray)
-                        } else {
-                            Button("Save", action: {
-                                showModal.toggle()
-                                // add saveQuote function
-                            })
                         }
                     }
                     
@@ -150,8 +162,24 @@ struct QuoteForm: View {
                             }
                         })
                     }
-                    
-                    
+                }
+            }
+        }
+    }
+}
+
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
+
+    var body: some View {
+        Button(action: self.action) {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
+                    Spacer()
+                    Image(systemName: "checkmark")
                 }
             }
         }
@@ -165,8 +193,11 @@ extension View {
     }
 }
 
+
+
 struct QuoteForm_Previews: PreviewProvider {
     static var previews: some View {
         QuoteForm(showModal: .constant(true))
     }
 }
+
