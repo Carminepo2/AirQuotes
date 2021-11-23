@@ -17,10 +17,10 @@ struct CreateTags: View {
     
     
     var body: some View {
-        
         NavigationView {
             
             ZStack {
+                
                 Color.themeColor
                     .ignoresSafeArea()
             

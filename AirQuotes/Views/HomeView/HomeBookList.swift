@@ -25,14 +25,14 @@ struct HomeBookList: View {
                 ForEach(Array(books).chunked(into: 2), id: \.first) { bookPair in
                     HStack {
                         NavigationLink {
-                            ListQuotesBook()
+                            ListQuotesBook(book: bookPair[0])
                         } label: {
                             BookView(bookPair[0], color: Color(bookPair[0].color ?? "Background"), text: bookPair[0].title ?? "Unknown")
                         }
                         Spacer()
                         if bookPair.indices.contains(1) {
                             NavigationLink {
-                                ListQuotesBook()
+                                ListQuotesBook(book: bookPair[1])
                             } label: {
                                 BookView(bookPair[1], color: Color(bookPair[1].color ?? "Background"), text: bookPair[1].title ?? "Unknown")
                             }

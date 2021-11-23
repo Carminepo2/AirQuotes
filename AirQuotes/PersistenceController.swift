@@ -105,6 +105,15 @@ final class PersistenceController {
     
     // MARK: - Books Data Functions
     
+    func getBooksQuotes(_ book: Book) -> [Quote]? {
+        let fetchRequest = Quote.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "ANY book == %@", book)
+        if let quotes = try? viewContext.fetch(fetchRequest) {
+            return quotes
+        }
+        return nil
+    }
+    
     func createBook(_ color: String, _ title: String, _ author: String) {
         let newBook = Book(context: viewContext)
         newBook.color = color
