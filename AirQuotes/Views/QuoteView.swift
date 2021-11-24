@@ -17,6 +17,8 @@ struct QuoteView: View {
     
 
     
+
+    
   
     
     
@@ -124,7 +126,7 @@ struct QuoteView: View {
                     showModal.toggle()
                 },
                 .destructive(Text("Delete")) {
-                    
+                    PersistenceController.shared.delete(quote: quote)
                 },
                 .cancel()
             ])

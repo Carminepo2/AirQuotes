@@ -29,9 +29,7 @@ struct TagButtons: View {
             .padding(.horizontal)
             .foregroundColor(.primary)
             
-            Image(systemName: "chevron.forward")
-                .padding(.horizontal)
-                .foregroundColor(.primary)
+         
         }
         .background(RoundedRectangle(cornerRadius: 10).fill(color))
         .padding(.vertical, 4)

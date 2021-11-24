@@ -36,7 +36,7 @@ struct QuotesView: View {
                         
                         switch(quotesViewModel.actualViewType) {
                         case .tags:
-                            TagsListView()
+                            TagsListView(geometry: geometry)
                             
                         case .bookshelf:
                             BookshelfView()
