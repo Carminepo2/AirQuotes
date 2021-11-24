@@ -26,7 +26,7 @@ struct ListQuotesBook: View {
             List {
                 ForEach(quotes) {
                     quote in
-                    NavigationLink(destination: QuoteView(quote: quote.text ?? "Unknown", author: quote.author ?? "Unknown")) {
+                    NavigationLink(destination: QuoteView(quote: quote)) {
                         QuoteInList(quote: quote)
                     }
                 }

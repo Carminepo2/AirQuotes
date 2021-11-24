@@ -13,6 +13,7 @@
         <attribute name="author" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="text" attributeType="String"/>
         <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="quotes" inverseEntity="Book"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="books" inverseEntity="Tag"/>
@@ -25,7 +26,7 @@
     </entity>
     <elements>
         <element name="Book" positionX="48.64453125" positionY="-390.3046875" width="128" height="148"/>
-        <element name="Quote" positionX="-482.01953125" positionY="-309.4375" width="128" height="133"/>
+        <element name="Quote" positionX="-482.01953125" positionY="-309.4375" width="128" height="134"/>
         <element name="Tag" positionX="-80.5859375" positionY="-110.48046875" width="215.59765625" height="88"/>
     </elements>
 </model>

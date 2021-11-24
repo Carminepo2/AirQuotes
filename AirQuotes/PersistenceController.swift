@@ -62,6 +62,16 @@ final class PersistenceController {
         save()
     }
     
+    func setFavoriteQuote(quote: Quote) {
+        quote.isFavorite = true
+        save()
+    }
+    
+    func unfavoriteQuote(quote: Quote) {
+        quote.isFavorite = false
+        save()
+    }
+    
     func getQuoteById(id: NSManagedObjectID) -> Quote? {
         do {
             return try viewContext.existingObject(with: id) as? Quote

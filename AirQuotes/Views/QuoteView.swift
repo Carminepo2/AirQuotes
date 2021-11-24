@@ -9,19 +9,15 @@ import SwiftUI
 
 struct QuoteView: View {
     
-    let quote: String
-    let author: String
-    @State var favourite: Bool = false
-    @State private var showActionSheet = false
+    @ObservedObject var quote: Quote
+    
+    @State var showActionSheet: Bool = false
     @State var showModal : Bool = false
 
     
     var body: some View {
         ScrollView{
             VStack{
-                Text("Quote")
-                    .font(.system(size: 30))
-                    .fontWeight(.semibold)
                 ZStack{
                     VStack{
                         HStack{
@@ -29,7 +25,7 @@ struct QuoteView: View {
                             Spacer()
                         }
                         
-                        Text("\(quote)")
+                        Text("\(quote.text ?? "Unknown")")
                             .font(.largeTitle)
                             .fontWeight(.regular)
                             .multilineTextAlignment(.center)
@@ -46,7 +42,7 @@ struct QuoteView: View {
                     }
                 }
                 
-                Text("\(author)")
+                Text("\(quote.author ?? "Unknown")")
                     .font(.subheadline)
                     .fontWeight(.medium)
                     .foregroundColor(.gray)
@@ -88,21 +84,21 @@ struct QuoteView: View {
                     
                 }label:{
                     
-                    if favourite{
+                    if quote.isFavorite {
                         Image(systemName: "heart.fill")
                             .foregroundColor(.red)
                             .padding()
-                            .scaleEffect(1.6)
+                            .scaleEffect(1.2)
                             .onTapGesture {
-                                favourite = false
+                                PersistenceController.shared.unfavoriteQuote(quote: quote)
                             }
                     } else{
                         Image(systemName: "heart")
                             .foregroundColor(.blue)
                             .padding()
-                            .scaleEffect(1.6)
+                            .scaleEffect(1.2)
                             .onTapGesture {
-                                favourite = true
+                                PersistenceController.shared.setFavoriteQuote(quote: quote)
                             }
                     }
                 }
@@ -134,8 +130,8 @@ struct QuoteView: View {
     }
 }
 
-struct QuoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuoteView(quote: "It is impossible to manufacture or imitate love", author: "Horace Slughorn")
-    }
-}
+//struct QuoteView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuoteView(quote: "It is impossible to manufacture or imitate love", author: "Horace Slughorn")
+//    }
+//}
