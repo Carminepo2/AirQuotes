@@ -28,12 +28,12 @@ struct QuoteSliderView: View {
                     NavigationLink {
                         QuoteView(quote: quote)
                     } label: {
-                        QuoteSliderItem(text: quote.text ?? "Unknown")
+                        QuoteSliderItem(text: (quote.text ?? "Unknown").trunc(length: 120), author: (quote.author ?? "Unknown").trunc(length: 16))
                     }
 
                 }
             } else {
-                QuoteSliderItem(text: emptyState)
+                QuoteSliderItem(text: emptyState, author: nil)
             }
         }
         .tabViewStyle(.page)
@@ -53,19 +53,33 @@ struct QuoteSliderView_Previews: PreviewProvider {
 struct QuoteSliderItem: View {
     
     let text: String
+    let author: String?
     
+        
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .frame(height: 200)
                 .foregroundColor(Color.gray)
                 .opacity(0.2)
-                .padding()
+            VStack {
+                Text("\"\(text)\"")
+                    .font(.system(.title2, design: .serif))
+                    .foregroundColor(Color.black)
+                           
+                if let author = author {
+                    Text("- \(author)")
+                        .opacity(0.5)
+                        .padding(.top, 1)
+
+
+                }
+            }
+            .padding()
+
             
-            Text("\"\(text)\"")
-                .font(.system(.title2, design: .serif))
-                .foregroundColor(Color.black)
-                .opacity(0.5)
         }
+        .padding()
+
     }
 }

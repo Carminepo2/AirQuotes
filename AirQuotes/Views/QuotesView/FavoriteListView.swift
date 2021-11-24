@@ -10,7 +10,6 @@ import SwiftUI
 struct FavoriteListView: View {
     
     @FetchRequest(entity: Quote.entity(), sortDescriptors: []) var quotes : FetchedResults<Quote>
-    let geometry: GeometryProxy
     
     var body: some View {
         List {
@@ -22,14 +21,7 @@ struct FavoriteListView: View {
             }
             .onDelete(perform: delete)
         }
-        .frame(width: geometry.size.width - 5, height: geometry.size.height - 50, alignment: .center)
-        .onAppear {
-            UITableView.appearance().isScrollEnabled = false
-        }
-        .onDisappear {
-            UITableView.appearance().isScrollEnabled = true
-
-        }
+        
     }
     
     func delete(at offsets: IndexSet) {

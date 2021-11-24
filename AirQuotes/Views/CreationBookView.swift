@@ -36,11 +36,10 @@ struct BookCreationView: View {
                 Color.themeColor
                     .ignoresSafeArea()
                 VStack {
-                    BookView(color: Color(chosenColor), text: title)
-                        .frame(height: 220)
+                    
                     
                     Form {
-                        Section(header: Text("New Book")) {
+                        Section(header: Text("Title & author")) {
                             TextField("Title", text: $title)
                                 .frame(height: 50)
                             TextField("Author", text: $author)
@@ -48,7 +47,7 @@ struct BookCreationView: View {
                         }
                         
                         
-                        Section(header: Text("Pick a color")) {
+                        Section(header: Text("Color")) {
                             
                             HStack{
                                 ColorButtonPicker(colorName: "BookRed", chosenColor: $chosenColor)
@@ -60,10 +59,22 @@ struct BookCreationView: View {
                             .padding(.horizontal)
 
                         }
+                        
+                        Section(header: Text("Preview")) {
+                            Group {
+                                BookView(color: Color(chosenColor), text: title)
+                                    .frame(height: 220)
+                                    .padding(.vertical)
+
+                            }
+                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+
+                        }
                     }
+                    
+                    
                 }
-                .offset(y: -20)
-                
+                .navigationTitle("New book")
                 .toolbar(content: {
                     if title.isEmpty{
                         Text("Add")

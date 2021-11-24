@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7531B43D2746A32B006B235D /* (null) in Sources */ = {isa = PBXBuildFile; };
+		75886787274EE3AF007381AB /* TruncateTextMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75886786274EE3AF007381AB /* TruncateTextMethod.swift */; };
 		75BF6055274458360099A9C8 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF6054274458360099A9C8 /* TagsListView.swift */; };
 		75C046B92746B07E004552AC /* CreationBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C046B82746B07E004552AC /* CreationBookView.swift */; };
 		75C1E1D7274E638B00E0518A /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C1E1D6274E638B00E0518A /* FavoriteListView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75886786274EE3AF007381AB /* TruncateTextMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruncateTextMethod.swift; sourceTree = "<group>"; };
 		75BF6054274458360099A9C8 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 		75C046B82746B07E004552AC /* CreationBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationBookView.swift; sourceTree = "<group>"; };
 		75C1E1D6274E638B00E0518A /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				75C509772742AF8200F8CA2E /* Theme.swift */,
 				75FA7DCA2745B91900DDF4CD /* ImagePicker.swift */,
 				B9A03C112746B0EE00A825CA /* ScanButton.swift */,
+				75886786274EE3AF007381AB /* TruncateTextMethod.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				9CBB98D32747E55600E27B94 /* TagView.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
 				B9BD012E274E22F600D82999 /* TagButtons.swift in Sources */,
+				75886787274EE3AF007381AB /* TruncateTextMethod.swift in Sources */,
 				B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */,
 				75C87158274A60D800ED5317 /* QuoteSliderView.swift in Sources */,
 				DEEB00A52747F9A5002D2039 /* QuoteInList.swift in Sources */,

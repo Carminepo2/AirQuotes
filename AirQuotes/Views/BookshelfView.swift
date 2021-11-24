@@ -22,24 +22,28 @@ struct BookshelfView: View {
     
     
     let columns = [
-        GridItem(.flexible(), spacing: 24),
-        GridItem(.flexible(), spacing: 24),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
+        GridItem(.flexible(), spacing: 10),
+
     ]
     
     var body: some View {
         
-        LazyVGrid(columns: columns, spacing: 24) {
-            ForEach(books) { book in
-                NavigationLink {
-                    ListQuotesBook(book: book)
-                } label: {
-                    BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
-                    
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 10) {
+                ForEach(books) { book in
+                    NavigationLink {
+                        ListQuotesBook(book: book)
+                    } label: {
+                        BookView(book, color: Color(book.color ?? "Background"), text: book.title ?? "Unknown")
+                        
+                    }
                 }
             }
-            
-        }.padding()
-        Spacer()
+            .padding()
+            Spacer()
+        }
         
         
     }

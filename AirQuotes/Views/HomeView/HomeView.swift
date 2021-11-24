@@ -26,8 +26,6 @@ struct HomeView: View {
                         Text("Latest quotes")
                             .font(.title2)
                             .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .opacity(0.60)
                             .padding(.horizontal)
                         Spacer()
                     }
@@ -40,8 +38,14 @@ struct HomeView: View {
                         .padding(.bottom, -10)
 
                     
-                    Button("Add Quote") {
+
+                    Button {
                         showModal.toggle()
+                    } label: {
+                        HStack {
+                            Image(systemName: "pencil")
+                            Text("Add Quote")
+                        }
                     }
                         .buttonStyle(RoundedRectangleButtonStyle())
                         .padding()
@@ -54,8 +58,6 @@ struct HomeView: View {
                         Text("Recent books")
                             .font(.title2)
                             .fontWeight(.semibold)
-                            .foregroundColor(Color.black)
-                            .opacity(0.60)
                         Spacer()
                         
                         Button("+ Add Book") {
@@ -92,8 +94,9 @@ struct DividerMartina: View {
         RoundedRectangle(cornerRadius: 10)
             .frame(height: 1)
             .foregroundColor(Color.gray)
-            .opacity(0.5)
+            .opacity(0.2)
         // .position(x: 166, y:-13)
             .padding(.horizontal)
+            .padding(.vertical, -10)
     }
 }

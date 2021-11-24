@@ -18,31 +18,20 @@ struct TagsListView: View {
             NSSortDescriptor(keyPath: \Tag.name, ascending: false)
         ]
     ) var tags: FetchedResults<Tag>
-    
-    let geometry: GeometryProxy
-    
+        
     
     var body: some View {
-        List{
+        List {
             
             ForEach(tags) { tag in
                 NavigationLink {
                     ListQuotesTag(tag: tag)
                 } label: {
                     TagButtons(color: Color(tag.color ?? ""), title: tag.name ?? "Unknown", tag.objectID)
-//                        .padding(.horizontal)
                 }
             }
             .onDelete(perform: delete)
         }
-        .frame(width: geometry.size.width - 5, height: geometry.size.height - 50, alignment: .center)
-        .onAppear {
-            UITableView.appearance().isScrollEnabled = false
-        }
-        .onDisappear {
-            UITableView.appearance().isScrollEnabled = true
-        }
-//        .padding(.vertical)
     }
     
     

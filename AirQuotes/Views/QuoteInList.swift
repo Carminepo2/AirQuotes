@@ -18,7 +18,7 @@ struct QuoteInList: View {
     init(quote: Quote) {
         self.quote = quote
         quoteText = "“\(quote.text ?? "Unknown")”"
-        quoteAuthor = quote.author ?? ""
+        quoteAuthor = "- \(quote.author ?? "Unknown")"
         time = ""
     }
     

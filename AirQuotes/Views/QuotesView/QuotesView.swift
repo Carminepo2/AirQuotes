@@ -17,8 +17,6 @@ struct QuotesView: View {
             Color.themeColor
                 .ignoresSafeArea()
             
-            GeometryReader { geometry in
-                ScrollView {
                     
                     VStack {
                         Section {
@@ -36,19 +34,16 @@ struct QuotesView: View {
                         
                         switch(quotesViewModel.actualViewType) {
                         case .tags:
-                            TagsListView(geometry: geometry)
-                            
+                            TagsListView()
                         case .bookshelf:
                             BookshelfView()
                         case .favorites:
-                            FavoriteListView(geometry: geometry)
+                            FavoriteListView()
                         }
                     }
                 }
                 
-            }
-        }
-        
+      
         
         
     }

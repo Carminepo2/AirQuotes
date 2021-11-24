@@ -130,7 +130,7 @@ struct QuoteForm: View {
                         }
                     }
                 }
-                .navigationTitle("Add a new quote")
+                .navigationTitle("New quote")
                 
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
