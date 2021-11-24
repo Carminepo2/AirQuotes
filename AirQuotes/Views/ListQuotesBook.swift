@@ -15,7 +15,7 @@ struct ListQuotesBook: View {
     ]) var quotes : FetchedResults<Quote>
     let book: Book
 
-    @State private var showModal = false
+    @State private var showCreateQuoteModal = false
     
     
     var body: some View {
@@ -32,10 +32,13 @@ struct ListQuotesBook: View {
         }
         .navigationTitle(book.title ?? "")
         .toolbar {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+            Button(action: { showCreateQuoteModal.toggle() }) {
                 Image(systemName: "plus.circle")
             }
         }
+        .sheet(isPresented: $showCreateQuoteModal, content: {
+            QuoteForm(showModal: $showCreateQuoteModal, book: book)
+        })
         
         
         

@@ -34,6 +34,7 @@ struct QuoteSliderView: View {
                 }
             } else {
                 QuoteSliderItem(text: emptyState, author: nil)
+                    .opacity(0.5)
             }
         }
         .tabViewStyle(.page)

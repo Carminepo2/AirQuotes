@@ -90,6 +90,16 @@ final class PersistenceController {
         return request
     }
     
+    func editQuote(_ quoteToEdit: Quote, _ quote: String, _ by: String, _ selectedBook: Book, _ chosenTagList: [Tag]) {
+        quoteToEdit.setValuesForKeys([
+            "text": quote,
+            "author": by,
+            "tags": chosenTagList,
+            "book": selectedBook
+        ])
+        save()
+    }
+    
     func delete(quote: Quote) {
         viewContext.delete(quote)
         save()
@@ -136,12 +146,7 @@ final class PersistenceController {
     }
     
     
-    
-    
-    
-    
-    
-    
+ 
     func createBook(_ color: String, _ title: String, _ author: String) {
         let newBook = Book(context: viewContext)
         newBook.color = color

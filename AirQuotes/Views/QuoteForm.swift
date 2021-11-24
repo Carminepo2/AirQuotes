@@ -21,6 +21,7 @@ struct QuoteForm: View {
     @State var tagName: String = "Prova"
     @State var chosenColor: String = "BookRed"
     @State var chosenTagList: [Tag] = []
+    @State var quoteToEdit: Quote? = nil
     
     
     @State var showTagList: Bool = false
@@ -40,9 +41,31 @@ struct QuoteForm: View {
     ) var books: FetchedResults<Book>
     
     
-    
-    
     private let gridKeyBoardButtonsLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
+    init (showModal: Binding<Bool>, book: Book? = nil, quote: Quote? = nil) {
+        _showModal = showModal
+
+        if let book = book {
+            _selectedBook = State(wrappedValue: book)
+        }
+        
+        if let quote = quote {
+            _quoteToEdit = State(wrappedValue: quote)
+            _quote = State(wrappedValue: quote.text ?? "")
+            _by = State(wrappedValue: quote.author ?? "")
+            if let quoteTags = quote.tags {
+                _chosenTagList = State(wrappedValue: Array(quoteTags as! Set<Tag>))
+            }
+            
+            if let quoteBook = quote.book {
+                _selectedBook = State(wrappedValue: quoteBook)
+            }
+
+
+        }
+        
+    }
     
     
     var body: some View {
@@ -124,20 +147,27 @@ struct QuoteForm: View {
                             Picker("Choose book", selection: $selectedBook) {
                                 ForEach(books) {
                                     Text($0.title ?? "Unknown").tag($0 as Book?)
+                                        
                                 }
                             }
                             .foregroundColor(.primary)
                         }
                     }
                 }
-                .navigationTitle("New quote")
+                .navigationTitle(quoteToEdit != nil ? "Edit quote" : "New quote")
                 
                 .toolbar {
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         
                         if !quote.isEmpty && selectedBook != nil && !by.isEmpty {
                             Button("Save", action: {
-                                PersistenceController.shared.createQuote(quote, by, selectedBook!, chosenTagList)
+                                
+                                if let quoteToEdit = quoteToEdit {
+                                    PersistenceController.shared.editQuote(quoteToEdit, quote, by, selectedBook!, chosenTagList)
+                                } else {
+                                    PersistenceController.shared.createQuote(quote, by, selectedBook!, chosenTagList)
+                                }
+                                
                                 showModal.toggle()
                             })
                             

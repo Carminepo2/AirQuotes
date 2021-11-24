@@ -101,7 +101,7 @@ struct QuoteView: View {
                 ])
             })
             .sheet(isPresented: $showModal) {
-                QuoteForm(showModal: $showModal)
+                QuoteForm(showModal: $showModal, quote: quote)
             }
         }
     }
