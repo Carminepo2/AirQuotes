@@ -62,6 +62,16 @@ final class PersistenceController {
         save()
     }
     
+    func setFavoriteQuote(quote: Quote) {
+        quote.isFavorite = true
+        save()
+    }
+    
+    func unfavoriteQuote(quote: Quote) {
+        quote.isFavorite = false
+        save()
+    }
+    
     func getQuoteById(id: NSManagedObjectID) -> Quote? {
         do {
             return try viewContext.existingObject(with: id) as? Quote
@@ -70,15 +80,14 @@ final class PersistenceController {
         }
     }
     
-    func getLatestQuotes() -> [Quote] {
-        let request: NSFetchRequest<Quote> = Quote.fetchRequest()
+    func getLatestQuotes() -> NSFetchRequest<Quote> {
+        let request = Quote.fetchRequest()
         request.fetchLimit = 5
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Quote.createdAt, ascending: false)
+        ]
         
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            return []
-        }
+        return request
     }
     
     func delete(quote: Quote) {

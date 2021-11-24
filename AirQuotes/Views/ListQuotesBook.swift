@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ListQuotesBook: View {
     
-
+    
+    @FetchRequest var quotes : FetchedResults<Quote>
     let book: Book
     @State private var quotes: [Quote] = []
     @State private var bookTitle: String
@@ -17,36 +18,40 @@ struct ListQuotesBook: View {
     
     init(book: Book) {
         self.book = book
-        _bookTitle = State(wrappedValue: book.title ?? "")
-        if let quotes = PersistenceController.shared.getBooksQuotes(book) {
-            _quotes = State(wrappedValue: quotes)
-        }
+        self._quotes = FetchRequest(entity: Quote.entity(), sortDescriptors: [
+            NSSortDescriptor(keyPath: \Quote.createdAt, ascending: true)
+        ])
     }
     
     var body: some View {
         
-        Group {
-            List {
-                ForEach(quotes) {
-                    quote in
-                    NavigationLink(destination: QuoteView(quote: quote.text ?? "Unknown", author: quote.author ?? "Unknown")) {
-                        QuoteInList(quote: quote)
-                    }
+        List {
+            ForEach(quotes.filter { $0.book?.objectID == self.book.objectID}) {
+                quote in
+                NavigationLink(destination: QuoteView(quote: quote)) {
+                    QuoteInList(quote: quote)
                 }
-                
-                
             }
+            .onDelete(perform: delete)
             
-            .navigationTitle(bookTitle)
-            .toolbar {
-                Button {
-                    showModal.toggle()
-                } label: {
-                    Image(systemName: "plus.circle")
-                }
-                .sheet(isPresented: $showModal, content: {
-                    QuoteForm(showModal: $showModal)
-                })
+            
+        }
+        
+        .navigationTitle("Harry Potter")
+        .toolbar {
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Image(systemName: "plus.circle")
+            }
+        }
+        
+        
+        
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for i in offsets {
+            DispatchQueue.main.async {
+                PersistenceController.shared.delete(quote: quotes[i])
             }
         }
         
