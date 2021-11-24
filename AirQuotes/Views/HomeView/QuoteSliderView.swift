@@ -61,8 +61,10 @@ struct QuoteSliderItem: View {
                 .foregroundColor(Color.gray)
                 .opacity(0.2)
                 .padding()
-            Text(text)
-                .foregroundColor(Color.gray)
+            
+            Text("\"\(text)\"")
+                .font(.system(.title2, design: .serif))
+                .foregroundColor(Color.black)
                 .opacity(0.5)
         }
     }

@@ -16,20 +16,20 @@ struct NavgationView: View {
             TabView {
                 NavigationView {
                     HomeView()
-                        .navigationTitle("Home")
+                        .navigationTitle("Latest")
                 }
                 .tabItem {
-                    Image(systemName: "house")
-                    Text("Home")
+                    Image(systemName: "text.quote")
+                    Text("Latest")
                 }
                 
                 NavigationView {
                     QuotesView()
-                        .navigationTitle("Quotes")
+                        .navigationTitle("Collection")
                 }
                 .tabItem {
-                    Image(systemName: "text.quote")
-                    Text("Quotes")
+                    Image(systemName: "books.vertical.fill")
+                    Text("Collection")
                 }
                 
             }

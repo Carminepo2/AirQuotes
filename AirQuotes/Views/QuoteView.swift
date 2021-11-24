@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct QuoteView: View {
+
     
     @ObservedObject var quote: Quote
-    
     @State var showActionSheet: Bool = false
     @State var showModal : Bool = false
+    @State var chosenTagList: [Tag] = []
+    
 
+    
+  
+    
     
     var body: some View {
         ScrollView{
@@ -26,11 +31,11 @@ struct QuoteView: View {
                         }
                         
                         Text("\(quote.text ?? "Unknown")")
-                            .font(.largeTitle)
+                            .font(.system(.title2, design: .serif))
                             .fontWeight(.regular)
                             .multilineTextAlignment(.center)
-                            .foregroundColor(Color.gray)
-                            .opacity(0.7)
+                            .foregroundColor(Color.black)
+                            .opacity(0.6)
                             .lineLimit(100)
                             .padding(.horizontal)
                         
@@ -55,23 +60,22 @@ struct QuoteView: View {
                         .padding(.horizontal)
                     Spacer()
                 }
-                
-                HStack{
-                    
-                    TagView(color: Color.green, title: "Funny")
+                             
+                    if chosenTagList.count > 0 {
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 10) {
+                                ForEach(chosenTagList) {
+                                    TagView(color: Color($0.color ?? ""), title: $0.name ?? "Unknown")
+                                    
+                                }
+                            }
+                            .padding(.vertical)
+                        }
+                    }
                     //.padding(.horizontal, 7)
                     
-                    Button {
-                        
-                        
-                    } label: {
-                        
-                        Image(systemName: "plus.circle")
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.blue)
-                            .scaleEffect(2)
-                    }
-                }
+   
+                
                 
                 Spacer()
             }
@@ -106,7 +110,8 @@ struct QuoteView: View {
                 
                 }label:{
                     
-                Image(systemName: "ellipsis")
+                Image(systemName: "ellipsis.circle")
+                    .foregroundColor(.blue)
                     .onTapGesture {
                         showActionSheet = true
                     }
