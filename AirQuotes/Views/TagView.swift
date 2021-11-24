@@ -10,8 +10,6 @@ import CoreData
 
 struct TagView: View {
     
-
-    
     let id: NSManagedObjectID?
     let color : Color
     let title : String

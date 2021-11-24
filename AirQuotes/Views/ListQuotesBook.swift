@@ -10,24 +10,18 @@ import SwiftUI
 struct ListQuotesBook: View {
     
     
-    @FetchRequest var quotes : FetchedResults<Quote>
+    @FetchRequest(entity: Quote.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \Quote.createdAt, ascending: true)
+    ]) var quotes : FetchedResults<Quote>
     let book: Book
 
-    @State private var bookTitle: String
     @State private var showModal = false
     
-    init(book: Book) {
-        self.book = book
-        self._quotes = FetchRequest(entity: Quote.entity(), sortDescriptors: [
-            NSSortDescriptor(keyPath: \Quote.createdAt, ascending: true)
-        ])
-        _bookTitle = State(wrappedValue: book.title ?? "")
-    }
     
     var body: some View {
         
         List {
-            ForEach(quotes.filter { $0.book?.objectID == self.book.objectID}) {
+            ForEach(quotes.filter { $0.book?.objectID == self.book.objectID }) {
                 quote in
                 NavigationLink(destination: QuoteView(quote: quote)) {
                     QuoteInList(quote: quote)
@@ -35,10 +29,8 @@ struct ListQuotesBook: View {
             }
             .onDelete(perform: delete)
             
-            
         }
-        
-        .navigationTitle(bookTitle)
+        .navigationTitle(book.title ?? "")
         .toolbar {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Image(systemName: "plus.circle")
