@@ -10,12 +10,14 @@ import SwiftUI
 struct ListQuotesBook: View {
     
 
-    @FetchRequest var quotes : FetchedResults<Quote>
-
+    let book: Book
+    @State private var quotes: [Quote] = []
     
-    init(book: Book) {        
-        let predicate = NSPredicate(format: "ANY book == %@", book)
-        self._quotes = FetchRequest(entity: Quote.entity(), sortDescriptors: [], predicate: predicate)
+    init(book: Book) {
+        self.book = book
+        if let quotes = PersistenceController.shared.getBooksQuotes(book) {
+            _quotes = State(wrappedValue: quotes)
+        }
     }
         
     var body: some View {
@@ -28,7 +30,6 @@ struct ListQuotesBook: View {
                         QuoteInList(quote: quote)
                     }
                 }
-                .onDelete(perform: delete)
                 
                 
             }
@@ -41,14 +42,6 @@ struct ListQuotesBook: View {
             }
         }
         
-    }
-    
-    func delete(at offsets: IndexSet) {
-        for i in offsets {
-            DispatchQueue.main.async {
-                PersistenceController.shared.delete(quote: quotes[i])
-            }
-        }
     }
     
     
