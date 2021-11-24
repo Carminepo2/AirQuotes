@@ -80,15 +80,14 @@ final class PersistenceController {
         }
     }
     
-    func getLatestQuotes() -> [Quote] {
-        let request: NSFetchRequest<Quote> = Quote.fetchRequest()
+    func getLatestQuotes() -> NSFetchRequest<Quote> {
+        let request = Quote.fetchRequest()
         request.fetchLimit = 5
+        request.sortDescriptors = [
+            NSSortDescriptor(keyPath: \Quote.createdAt, ascending: false)
+        ]
         
-        do {
-            return try viewContext.fetch(request)
-        } catch {
-            return []
-        }
+        return request
     }
     
     func delete(quote: Quote) {

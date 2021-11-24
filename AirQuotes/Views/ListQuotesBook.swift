@@ -19,7 +19,7 @@ struct ListQuotesBook: View {
             _quotes = State(wrappedValue: quotes)
         }
     }
-    
+        
     var body: some View {
         
         Group {

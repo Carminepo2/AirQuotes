@@ -9,25 +9,29 @@ import SwiftUI
 
 struct QuoteSliderView: View {
     
-    // 1
-    private let quotes = ["1", "2", "3", "4", "5"]
+    
+    @FetchRequest(fetchRequest: PersistenceController.shared.getLatestQuotes()) var quotes: FetchedResults<Quote>
+    
+    init() {
+        UIPageControl.appearance().currentPageIndicatorTintColor = .black
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.1)
+    }
     
     private let emptyState = "Write your first quote!"
     
-    init() {
-       UIPageControl.appearance().currentPageIndicatorTintColor = .black
-       UIPageControl.appearance().pageIndicatorTintColor = UIColor.black.withAlphaComponent(0.1)
-       }
     
     var body: some View {
-
+        
         TabView {
-            ForEach(quotes, id: \.self) { quote in
-                QuoteSliderItem(text: quote)
+            if quotes.count > 0 {
+                ForEach(Array(quotes), id: \.self) { quote in
+                    QuoteSliderItem(text: quote.text ?? "Unknown")
+                }
+            } else {
+                QuoteSliderItem(text: emptyState)
             }
         }
         .tabViewStyle(.page)
-
     }
 }
 
