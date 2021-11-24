@@ -25,7 +25,12 @@ struct QuoteSliderView: View {
         TabView {
             if quotes.count > 0 {
                 ForEach(Array(quotes), id: \.self) { quote in
-                    QuoteSliderItem(text: quote.text ?? "Unknown")
+                    NavigationLink {
+                        QuoteView(quote: quote)
+                    } label: {
+                        QuoteSliderItem(text: quote.text ?? "Unknown")
+                    }
+
                 }
             } else {
                 QuoteSliderItem(text: emptyState)

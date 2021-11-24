@@ -9,27 +9,28 @@ import SwiftUI
 
 struct ListQuotesBook: View {
     
-
+    
+    @FetchRequest var quotes : FetchedResults<Quote>
     let book: Book
-    @State private var quotes: [Quote] = []
     
     init(book: Book) {
         self.book = book
-        if let quotes = PersistenceController.shared.getBooksQuotes(book) {
-            _quotes = State(wrappedValue: quotes)
-        }
+        self._quotes = FetchRequest(entity: Quote.entity(), sortDescriptors: [
+            NSSortDescriptor(keyPath: \Quote.createdAt, ascending: true)
+        ])
     }
-        
+    
     var body: some View {
         
         Group {
             List {
-                ForEach(quotes) {
+                ForEach(quotes.filter { $0.book?.objectID == self.book.objectID}) {
                     quote in
                     NavigationLink(destination: QuoteView(quote: quote)) {
                         QuoteInList(quote: quote)
                     }
                 }
+                .onDelete(perform: delete)
                 
                 
             }
@@ -42,6 +43,16 @@ struct ListQuotesBook: View {
             }
         }
         
+        
+        
+    }
+    
+    func delete(at offsets: IndexSet) {
+        for i in offsets {
+            DispatchQueue.main.async {
+                PersistenceController.shared.delete(quote: quotes[i])
+            }
+        }
     }
     
     
