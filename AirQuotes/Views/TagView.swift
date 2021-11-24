@@ -10,6 +10,8 @@ import CoreData
 
 struct TagView: View {
     
+
+    
     let id: NSManagedObjectID?
     let color : Color
     let title : String
@@ -30,10 +32,10 @@ struct TagView: View {
             .lineLimit(1)
             .frame(maxWidth: 220)
     }
-    
-    struct TagView_Previews: PreviewProvider {
-        static var previews: some View {
-            TagView(color: Color.green, title: "Example", NSManagedObjectID())
-        }
+}
+
+struct TagView_Previews: PreviewProvider {
+    static var previews: some View {
+        TagView(color: Color.green, title: "Example", NSManagedObjectID())
     }
 }

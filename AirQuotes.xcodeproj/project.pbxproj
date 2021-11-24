@@ -33,6 +33,8 @@
 		B9540B77274B969C00651516 /* CreateTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9540B76274B969C00651516 /* CreateTags.swift */; };
 		B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */; };
 		B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A03C112746B0EE00A825CA /* ScanButton.swift */; };
+		B9BD012E274E22F600D82999 /* TagButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BD012D274E22F600D82999 /* TagButtons.swift */; };
+		B9BD0130274E300B00D82999 /* ListQuotesTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BD012F274E300B00D82999 /* ListQuotesTag.swift */; };
 		DEEB00A22747E7E7002D2039 /* ListQuotesBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */; };
 		DEEB00A32747E7E7002D2039 /* BookshelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A12747E7E7002D2039 /* BookshelfView.swift */; };
 		DEEB00A52747F9A5002D2039 /* QuoteInList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEB00A42747F9A5002D2039 /* QuoteInList.swift */; };
@@ -66,6 +68,8 @@
 		B9540B76274B969C00651516 /* CreateTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTags.swift; sourceTree = "<group>"; };
 		B9A03C092746A7B900A825CA /* RoundedRectangleButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRectangleButtonStyle.swift; sourceTree = "<group>"; };
 		B9A03C112746B0EE00A825CA /* ScanButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanButton.swift; sourceTree = "<group>"; };
+		B9BD012D274E22F600D82999 /* TagButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButtons.swift; sourceTree = "<group>"; };
+		B9BD012F274E300B00D82999 /* ListQuotesTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListQuotesTag.swift; sourceTree = "<group>"; };
 		DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListQuotesBook.swift; sourceTree = "<group>"; };
 		DEEB00A12747E7E7002D2039 /* BookshelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookshelfView.swift; sourceTree = "<group>"; };
 		DEEB00A42747F9A5002D2039 /* QuoteInList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteInList.swift; sourceTree = "<group>"; };
@@ -140,12 +144,15 @@
 				75C509712742A30800F8CA2E /* QuotesView */,
 				75C5095B274299BB00F8CA2E /* NavigationView.swift */,
 				75C046B82746B07E004552AC /* CreationBookView.swift */,
-				75C5097E2742B29F00F8CA2E /* BookView.swift */,
 				9CBB98D22747E55600E27B94 /* TagView.swift */,
+				DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */,
+				B9BD012F274E300B00D82999 /* ListQuotesTag.swift */,
+				75C5097E2742B29F00F8CA2E /* BookView.swift */,
+				B9BD012D274E22F600D82999 /* TagButtons.swift */,
 				B94A0FA827464980000FF9C8 /* QuoteForm.swift */,
 				B9540B76274B969C00651516 /* CreateTags.swift */,
 				DEEB00A12747E7E7002D2039 /* BookshelfView.swift */,
-				DEEB00A02747E7E7002D2039 /* ListQuotesBook.swift */,
+				75BF6054274458360099A9C8 /* TagsListView.swift */,
 				DEEB00A42747F9A5002D2039 /* QuoteInList.swift */,
 				75C59F202748308F00918B5C /* QuoteView.swift */,
 			);
@@ -185,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				75F8A8D12748084900EBF06E /* HomeBookList.swift */,
-				75BF6054274458360099A9C8 /* TagsListView.swift */,
 				75F8A8CF2748075600EBF06E /* HomeView.swift */,
 				75C87157274A60D800ED5317 /* QuoteSliderView.swift */,
 			);
@@ -280,12 +286,14 @@
 				75C5097F2742B29F00F8CA2E /* BookView.swift in Sources */,
 				75C5095C274299BB00F8CA2E /* NavigationView.swift in Sources */,
 				75C509732742A31A00F8CA2E /* QuotesViewModel.swift in Sources */,
+				B9BD0130274E300B00D82999 /* ListQuotesTag.swift in Sources */,
 				75BF6055274458360099A9C8 /* TagsListView.swift in Sources */,
 				B9A03C0C2746A7B900A825CA /* RoundedRectangleButtonStyle.swift in Sources */,
 				75C046B92746B07E004552AC /* CreationBookView.swift in Sources */,
 				75C4CA1C274441E700DEA1BB /* AirQuotesModel.xcdatamodeld in Sources */,
 				9CBB98D32747E55600E27B94 /* TagView.swift in Sources */,
 				B94A0FA927464980000FF9C8 /* QuoteForm.swift in Sources */,
+				B9BD012E274E22F600D82999 /* TagButtons.swift in Sources */,
 				B9A03C122746B0EE00A825CA /* ScanButton.swift in Sources */,
 				75C87158274A60D800ED5317 /* QuoteSliderView.swift in Sources */,
 				DEEB00A52747F9A5002D2039 /* QuoteInList.swift in Sources */,

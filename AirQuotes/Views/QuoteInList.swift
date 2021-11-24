@@ -19,7 +19,7 @@ struct QuoteInList: View {
         self.quote = quote
         quoteText = "“\(quote.text ?? "Unknown")”"
         quoteAuthor = quote.author ?? ""
-        time = "One hour ago"
+        time = ""
     }
     
     var body: some View {
@@ -28,7 +28,7 @@ struct QuoteInList: View {
             Text(quoteText)
                 .lineLimit(2)
             HStack {
-                Text("Horace Slughorn")
+                Text(quoteAuthor)
                     .font(.subheadline)
                     .foregroundColor(Color.gray)
                 Spacer()

@@ -103,6 +103,18 @@ final class PersistenceController {
         save()
     }
     
+    
+    
+    func getTagsQuotes(_ tag: Tag) -> [Quote]? {
+        let fetchRequest = Quote.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "ANY tag == %@", tag)
+        if let quotes = try? viewContext.fetch(fetchRequest) {
+            return quotes
+        }
+        return nil
+    }
+    
+    
     // MARK: - Books Data Functions
     
     func getBooksQuotes(_ book: Book) -> [Quote]? {
@@ -113,6 +125,13 @@ final class PersistenceController {
         }
         return nil
     }
+    
+    
+    
+    
+    
+    
+    
     
     func createBook(_ color: String, _ title: String, _ author: String) {
         let newBook = Book(context: viewContext)

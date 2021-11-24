@@ -1,24 +1,24 @@
 //
-//  ListQuotesBook.swift
+//  ListQuotesTag.swift
 //  AirQuotes
 //
-//  Created by Luca Basile on 19/11/21.
+//  Created by Valerio Domenico Conte on 24/11/21.
 //
 
 import SwiftUI
 
-struct ListQuotesBook: View {
+struct ListQuotesTag: View {
     
 
-    let book: Book
+    let tag: Tag
     @State private var quotes: [Quote] = []
-    @State private var bookTitle: String
+    @State private var tagName: String
     @State private var showModal = false
     
-    init(book: Book) {
-        self.book = book
-        _bookTitle = State(wrappedValue: book.title ?? "")
-        if let quotes = PersistenceController.shared.getBooksQuotes(book) {
+    init(tag: Tag) {
+        self.tag = tag
+        _tagName = State(wrappedValue: tag.name ?? "")
+        if let quotes = PersistenceController.shared.getTagsQuotes(tag) {
             _quotes = State(wrappedValue: quotes)
         }
     }
@@ -37,7 +37,7 @@ struct ListQuotesBook: View {
                 
             }
             
-            .navigationTitle(bookTitle)
+            .navigationTitle(tagName)
             .toolbar {
                 Button {
                     showModal.toggle()
@@ -54,11 +54,3 @@ struct ListQuotesBook: View {
     
     
 }
-
-/*
-struct ListQuotesBook_Previews: PreviewProvider {
-    static var previews: some View {
-        ListQuotesBook(quotes: FetchedResults<Quote>())
-    }
-}
-*/

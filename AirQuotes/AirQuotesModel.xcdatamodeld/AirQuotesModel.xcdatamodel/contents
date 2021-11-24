@@ -25,7 +25,7 @@
     </entity>
     <elements>
         <element name="Book" positionX="48.64453125" positionY="-390.3046875" width="128" height="148"/>
-        <element name="Quote" positionX="-482.01953125" positionY="-309.4375" width="128" height="133"/>
-        <element name="Tag" positionX="-80.5859375" positionY="-110.48046875" width="215.59765625" height="88"/>
+        <element name="Quote" positionX="-482.01953125" positionY="-309.4375" width="128" height="119"/>
+        <element name="Tag" positionX="-80.5859375" positionY="-110.48046875" width="215.59765625" height="89"/>
     </elements>
 </model>
