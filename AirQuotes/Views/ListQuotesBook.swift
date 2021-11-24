@@ -12,7 +12,7 @@ struct ListQuotesBook: View {
     
     @FetchRequest var quotes : FetchedResults<Quote>
     let book: Book
-    @State private var quotes: [Quote] = []
+
     @State private var bookTitle: String
     @State private var showModal = false
     
@@ -21,6 +21,7 @@ struct ListQuotesBook: View {
         self._quotes = FetchRequest(entity: Quote.entity(), sortDescriptors: [
             NSSortDescriptor(keyPath: \Quote.createdAt, ascending: true)
         ])
+        _bookTitle = State(wrappedValue: book.title ?? "")
     }
     
     var body: some View {
@@ -37,7 +38,7 @@ struct ListQuotesBook: View {
             
         }
         
-        .navigationTitle("Harry Potter")
+        .navigationTitle(bookTitle)
         .toolbar {
             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                 Image(systemName: "plus.circle")
