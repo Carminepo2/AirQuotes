@@ -22,24 +22,22 @@ struct ListQuotesBook: View {
     
     var body: some View {
         
-        Group {
-            List {
-                ForEach(quotes.filter { $0.book?.objectID == self.book.objectID}) {
-                    quote in
-                    NavigationLink(destination: QuoteView(quote: quote)) {
-                        QuoteInList(quote: quote)
-                    }
+        List {
+            ForEach(quotes.filter { $0.book?.objectID == self.book.objectID}) {
+                quote in
+                NavigationLink(destination: QuoteView(quote: quote)) {
+                    QuoteInList(quote: quote)
                 }
-                .onDelete(perform: delete)
-                
-                
             }
+            .onDelete(perform: delete)
             
-            .navigationTitle("Harry Potter")
-            .toolbar {
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
-                    Image(systemName: "plus.circle")
-                }
+            
+        }
+        
+        .navigationTitle("Harry Potter")
+        .toolbar {
+            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                Image(systemName: "plus.circle")
             }
         }
         

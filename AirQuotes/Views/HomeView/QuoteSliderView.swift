@@ -24,7 +24,7 @@ struct QuoteSliderView: View {
         
         TabView {
             if quotes.count > 0 {
-                ForEach(Array(quotes), id: \.self) { quote in
+                ForEach(quotes) { quote in
                     NavigationLink {
                         QuoteView(quote: quote)
                     } label: {
